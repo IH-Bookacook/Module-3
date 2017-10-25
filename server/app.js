@@ -59,8 +59,12 @@ const strategy = new Strategy(
 passport.use(strategy);
 
 const authRoutes = require("./routes/auth");
+const indexRoutes = require("./routes/index");
+const masterRoutes = require("./routes/master");
 
 app.use("/api", authRoutes);
+app.use("/api", indexRoutes);
+app.use("/api", masterRoutes);
 
 // This is an example of protected route
 app.get(
