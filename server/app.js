@@ -1,39 +1,58 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require("express");
+const path = require("path");
+const favicon = require("serve-favicon");
+const logger = require("morgan");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
+<<<<<<< HEAD
 
 var users = require('./routes/users');
 
 var app = express();
 const mongoose = require('mongoose');
+=======
+>>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
 const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
+
 mongoose.connect("mongodb://localhost/blog-lab", { useMongoClient: true });
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+const app = express();
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(passport.initialize())
+
+// what is this ??????
+if (app.get("env") === "development") {
+  app.use(
+    cors({
+      origin: "http://localhost:8080"
+    })
+  );
+}
+
+app.use(passport.initialize());
 // Create the strategy for JWT
 const strategy = new Strategy(
   {
+    // this is a config we pass to the strategy
+    // it needs to secret to decrypt the payload of the
+    // token.
     secretOrKey: config.jwtSecret,
+    // This options tells the strategy to extract the token
+    // from the header of the request
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
   },
   (payload, done) => {
-
+    // payload is the object we encrypted at the route /api/token
+    // We get the user id, make sure the user exist by looking it up
     User.findById(payload.id).then(user => {
       if (user) {
         // make the user accessible in req.user
@@ -47,34 +66,48 @@ const strategy = new Strategy(
 // tell pasport to use it
 passport.use(strategy);
 
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+const authRoutes = require("./routes/auth");
 
+app.use("/api", authRoutes);
+
+<<<<<<< HEAD
 const index = require('./routes/index');
 const authRoutes = require("./routes/auth");
 
 app.use('/', index);
 app.use('/api', authRoutes);
 app.use('/users', users);
+=======
+// This is an example of protected route
+app.get(
+  "/api/secret",
+  // this is protecting the route and giving us access to
+  // req.user
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res) => {
+    // send the user his own information
+    res.json(req.user);
+  }
+);
+>>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  const err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
+app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  res.render('error');
+  // return the error message only in development mode
+  res.json({
+    error: req.app.get("env") === "development" ? err : {}
+  });
 });
 
+<<<<<<< HEAD
 
 app.get("/api/secret",passport.authenticate("jwt", config.jwtSession),
   (req, res) => {
@@ -84,4 +117,6 @@ app.get("/api/secret",passport.authenticate("jwt", config.jwtSession),
 );
 
 
+=======
+>>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
 module.exports = app;
