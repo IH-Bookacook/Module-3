@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import {checkUser} from '@/api/auth'
+import Vuetify from 'vuetify'
 
-Vue.config.productionTip = false
+Vue.use(Vuetify)
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
