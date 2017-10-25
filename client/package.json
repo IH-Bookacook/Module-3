@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Reshma Patel <reshma1529@gmail.com>",
+  "author": "Eduardo San Martin Morote <posva13@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "mongoose": "^4.12.4",
-    "passport-local": "^1.0.0",
+    "buefy": "^0.5.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
