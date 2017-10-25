@@ -9,27 +9,24 @@ const config = require("../config");    //for login we need to add
 
 router.post('/signup', (req, res, next) => {
   const {
-    username;
-    name;
+    username,
+    email,
     password
   } = req.body;
-})
+  //create new user.
 
-//create new user.
+  const user = new User({
+   username,
+    email,
+  });
 
-const user = new User({
-  username,
-  name
-});
-
-User.register(user, password, (err) => {
+  User.register(user, password, (err) => {
     if (err) {
       return next(err)
     }
     res.json({ success: true })
-  })
+  });
 });
-
 // User.authenticate() returns a function
 const authenticate = User.authenticate();
 router.post("/login", (req, res, next) => {
@@ -63,9 +60,5 @@ router.post("/login", (req, res, next) => {
     res.sendStatus(401);
   }
 });
-
-
-
-
 
 module.exports = router;
