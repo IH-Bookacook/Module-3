@@ -5,21 +5,6 @@ const User = require('../models/user');
 const config = require('../config');
 
 router.post('/signup', (req, res, next) => {
-<<<<<<< HEAD
-  const {
-    username,
-    email,
-    password
-  } = req.body;
-  //create new user.
-
-  const user = new User({
-   username,
-    email,
-  });
-
-  User.register(user, password, (err) => {
-=======
   // extract the info we need from the body
   // of the request
   const { username, name, password } = req.body;
@@ -34,15 +19,10 @@ router.post('/signup', (req, res, next) => {
   });
 
   User.register(user, password, err => {
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
     if (err) {
       return next(err);
     }
-<<<<<<< HEAD
-    res.json({ success: true })
-=======
     res.json({ success: true });
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
   });
 });
 // User.authenticate() returns a function

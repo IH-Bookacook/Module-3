@@ -41,7 +41,6 @@
         <router-view></router-view>
       </div>
     </section>
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
   </div>
 </template>
 
