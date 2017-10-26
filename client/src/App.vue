@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
+
     <img src="./assets/img1.jpg">
     <router-view/>
-=======
+
    <nav class="navbar is-transparent">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
@@ -57,4 +57,3 @@ export default {
   }
 }
 </script>
-
