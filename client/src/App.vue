@@ -41,15 +41,15 @@
 </template>
 
 <script>
-import { logout } from '@/api/auth'
+import { logout } from "@/api/auth";
 export default {
-  name: 'app',
+  name: "app",
   methods: {
-    logout () {
-      logout(this.$root)
-      this.$router.push('/')
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
     }
   }
-}
+};
 </script>
 

@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const MasterSchema = new Schema({
+const masterSchema = new Schema({
   title: {
     type: String,
     required: [true, "title is required"]
   },
-  YearFirstPublished: {
+  yearFirstPublished: {
     type: Number
   },
   originalLanguage: {
@@ -64,4 +64,6 @@ const MasterSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("Master", MasterSchema);
+masterSchema.set("timestamps", true);
+
+module.exports = mongoose.model("Master", masterSchema);

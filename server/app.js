@@ -11,7 +11,9 @@ const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-mongoose.connect("mongodb://localhost/blog-lab", { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bddb", {
+  useMongoClient: true
+});
 
 const app = express();
 
@@ -61,10 +63,20 @@ passport.use(strategy);
 const authRoutes = require("./routes/auth");
 const indexRoutes = require("./routes/index");
 const masterRoutes = require("./routes/master");
+const artistRoutes = require("./routes/artist");
+const publisherRoutes = require("./routes/publisher");
+const serieRoutes = require("./routes/serie");
+const userRoutes = require("./routes/user");
+const releaseRoutes = require("./routes/release");
 
 app.use("/api", authRoutes);
 app.use("/api", indexRoutes);
-app.use("/api", masterRoutes);
+app.use("/api/masters", masterRoutes);
+app.use("/api/artists", artistRoutes);
+app.use("/api/publishers", publisherRoutes);
+app.use("/api/series", serieRoutes);
+app.use("/api/users", userRoutes);
+// app.use("/api", releaseRoutes);
 
 // This is an example of protected route
 app.get(

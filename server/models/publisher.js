@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PublisherSchema = new Schema({
+const publisherSchema = new Schema({
   name: {
     type: String
   },
@@ -10,4 +10,6 @@ const PublisherSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("Publisher", PublisherSchema);
+publisherSchema.set("timestamps", true);
+
+module.exports = mongoose.model("Publisher", publisherSchema);

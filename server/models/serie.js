@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const SeriesSchema = new Schema({
+const serieSchema = new Schema({
   name: {
     type: String
   },
@@ -10,4 +10,6 @@ const SeriesSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("Series", SeriesSchema);
+serieSchema.set("timestamps", true);
+
+module.exports = mongoose.model("Serie", serieSchema);
