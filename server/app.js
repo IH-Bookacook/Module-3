@@ -6,14 +6,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-<<<<<<< HEAD
-
-var users = require('./routes/users');
-
-var app = express();
-const mongoose = require('mongoose');
-=======
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
 const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
@@ -74,14 +66,14 @@ app.use("/api", authRoutes);
 app.use("/api", indexRoutes);
 app.use("/api", masterRoutes);
 
-<<<<<<< HEAD
+
 const index = require('./routes/index');
-const authRoutes = require("./routes/auth");
+
 
 app.use('/', index);
 app.use('/api', authRoutes);
 app.use('/users', users);
-=======
+
 // This is an example of protected route
 app.get(
   "/api/secret",
@@ -93,7 +85,7 @@ app.get(
     res.json(req.user);
   }
 );
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -111,7 +103,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-<<<<<<< HEAD
+
 
 app.get("/api/secret",passport.authenticate("jwt", config.jwtSession),
   (req, res) => {
@@ -120,7 +112,4 @@ app.get("/api/secret",passport.authenticate("jwt", config.jwtSession),
   }
 );
 
-
-=======
->>>>>>> 8e02593dfb08b79fd344fe4b4e0d7e7a6590572d
 module.exports = app;
