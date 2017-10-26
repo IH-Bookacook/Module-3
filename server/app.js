@@ -59,20 +59,10 @@ const strategy = new Strategy(
 passport.use(strategy);
 
 const authRoutes = require("./routes/auth");
-const indexRoutes = require("./routes/index");
 const masterRoutes = require("./routes/master");
 
 app.use("/api", authRoutes);
-app.use("/api", indexRoutes);
 app.use("/api", masterRoutes);
-
-
-const index = require('./routes/index');
-
-
-app.use('/', index);
-app.use('/api', authRoutes);
-app.use('/users', users);
 
 // This is an example of protected route
 app.get(
@@ -85,7 +75,6 @@ app.get(
     res.json(req.user);
   }
 );
-
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
