@@ -32,9 +32,11 @@ const MasterSchema = new Schema({
       }
     }
   ],
-  awards: {
-    type: String
-  },
+  awards: [
+    {
+      type: String
+    }
+  ],
   image: {
     type: String
   },
@@ -50,6 +52,9 @@ const MasterSchema = new Schema({
       ref: "Series"
     }
   ],
+  numInTheSeries: {
+    type: String
+  },
   addedBy: {
     type: Schema.Types.ObjectId,
     ref: "User"
