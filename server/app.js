@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -10,10 +11,9 @@ const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
+const history = require('connect-history-api-fallback')
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bddb", {
-  useMongoClient: true
-});
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 
 const app = express();
 
@@ -69,7 +69,6 @@ const userRoutes = require("./routes/user");
 const releaseRoutes = require("./routes/release");
 
 app.use("/api", authRoutes);
-app.use("/api", indexRoutes);
 app.use("/api/masters", masterRoutes);
 app.use("/api/artists", artistRoutes);
 app.use("/api/publishers", publisherRoutes);
@@ -88,6 +87,9 @@ app.get(
     res.json(req.user);
   }
 );
+const clientRoot = path.join(__dirname, '../client/dist');
+app.use('/', express.static(clientRoot))
+app.use(history('index.html', { root: clientRoot }))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -1,0 +1,22 @@
+{
+  "name": "Module-3",
+  "version": "1.0.0",
+  "description": "Module 3 version of the Book a Cook project",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "postinstall": "cd server && npm install",
+    "start": "cd server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reshpatel/Module-3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reshpatel/Module-3/issues"
+  },
+  "homepage": "https://github.com/reshpatel/Module-3#readme"
+}
