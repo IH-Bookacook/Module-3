@@ -76,7 +76,7 @@ app.use("/api/artists", artistRoutes);
 app.use("/api/publishers", publisherRoutes);
 app.use("/api/series", serieRoutes);
 app.use("/api/users", userRoutes);
-// app.use("/api", releaseRoutes);
+app.use("/api", releaseRoutes);
 
 // This is an example of protected route
 app.get(
