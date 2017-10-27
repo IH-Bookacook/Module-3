@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Publisher = require("../models/publisher");
+var Master = require("../models/master");
 
 /* GET all publishers */
 router.get("/", function(req, res, next) {
@@ -12,6 +13,7 @@ router.get("/", function(req, res, next) {
   });
 });
 
+/* GET a particular publisher */
 router.get("/:id", (req, res, next) => {
   Publisher.findOne(
     {
@@ -26,6 +28,25 @@ router.get("/:id", (req, res, next) => {
         return res.redirect("/");
       }
       res.json(publisher);
+    }
+  );
+});
+
+/* GET all the masters of a particular publisher */
+router.get("/:id/masters", (req, res, next) => {
+  Master.find(
+    {
+      publisher: req.params.id
+    },
+    (err, artist) => {
+      if (err) {
+        req.flash(
+          "error",
+          `There's no master available for this publisher ${req.params.id}`
+        );
+        return res.redirect("/");
+      }
+      res.json(artist);
     }
   );
 });
