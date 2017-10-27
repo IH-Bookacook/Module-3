@@ -6,12 +6,11 @@ const MasterSchema = new Schema({
     type: String,
     required: [true, "title is required"]
   },
-  YearFirstPublished: {
+  yearFirstPublished: {
     type: Number
   },
   originalLanguage: {
-    type: String,
-    required: [true, "language is required"]
+    type: String
   },
   country: {
     type: String,
@@ -46,12 +45,10 @@ const MasterSchema = new Schema({
       ref: "Publisher"
     }
   ],
-  series: [
-    {
+  series: {
       type: Schema.Types.ObjectId,
       ref: "Series"
-    }
-  ],
+  },
   numInTheSeries: {
     type: String
   },
@@ -60,8 +57,10 @@ const MasterSchema = new Schema({
     ref: "User"
   },
   notes: {
-    type: String
+    type: String,
+    default: ""
   }
 });
+
 
 module.exports = mongoose.model("Master", MasterSchema);
