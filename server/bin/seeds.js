@@ -8,7 +8,15 @@ const Release = require("../models/release");
 const Serie = require("../models/serie");
 
 function getIdFromName(array, name) {
-  return array.find(el => el.name === name)._id;
+  const el = array.find(el => el.name === name);
+  if (!el) throw Error(`Element of name ${name} not found`);
+  return el._id;
+}
+
+function getIdFromTitle(array, title) {
+  const el = array.find(el => el.title === title);
+  if (!el) throw Error(`Element of title ${title} not found`);
+  return el._id;
 }
 
 function connect(uri) {
@@ -204,24 +212,24 @@ function seedReleases(data) {
   const { masters, artists, users, publishers } = data;
   const releases = [
     {
-      master: getIdFromName(masters, "Adolphus Claar"),
+      master: getIdFromTitle(masters, "Adolphus Claar"),
       releaseCountry: "France",
-      releasePublisher: "Pilote",
+      releasePublisher: getIdFromName(publishers, "Pilote"),
       addedBy: getIdFromName(users, "Marc Henri")
     },
     {
-      master: getIdFromName(masters, "La Serpe d'or"),
+      master: getIdFromTitle(masters, "La Serpe d'or"),
       releaseCountry: "France",
-      releasePublisher: "Pilote",
+      releasePublisher: getIdFromName(publishers, "Pilote"),
       isFirstIssue: true,
       coverType: "Rigide",
       releaseYear: 1957,
       addedBy: getIdFromName(users, "Jean Rousseau")
     },
     {
-      master: getIdFromName(masters, "La Serpe d'or"),
+      master: getIdFromTitle(masters, "La Serpe d'or"),
       releaseCountry: "France",
-      releasePublisher: "Dupuis",
+      releasePublisher: getIdFromName(publishers, "Dupuis"),
       coverType: "Souple",
       releaseYear: 1978,
       addedBy: getIdFromName(users, "Barbara Dupont")
@@ -241,7 +249,7 @@ function disconnect() {
   return mongoose.connection.close();
 }
 
-connect("mongodb://localhost/blog-lab")
+connect("mongodb://localhost/bddb")
   .then(cleanup)
   .then(seedUsers)
   .then(seedArtists)
