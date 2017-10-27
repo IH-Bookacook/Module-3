@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -11,9 +11,9 @@ const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
-const history = require('connect-history-api-fallback')
+const history = require("connect-history-api-fallback");
 
-mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
+mongoose.express(process.env.MONGODB_URI, { useMongoClient: true });
 
 const app = express();
 
@@ -87,9 +87,9 @@ app.get(
     res.json(req.user);
   }
 );
-const clientRoot = path.join(__dirname, '../client/dist');
-app.use('/', express.static(clientRoot))
-app.use(history('index.html', { root: clientRoot }))
+const clientRoot = path.join(__dirname, "../client/dist");
+app.use("/", express.static(clientRoot));
+app.use(history("index.html", { root: clientRoot }));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -107,9 +107,9 @@ app.use((err, req, res, next) => {
   });
 });
 
-
-
-app.get("/api/secret",passport.authenticate("jwt", config.jwtSession),
+app.get(
+  "/api/secret",
+  passport.authenticate("jwt", config.jwtSession),
   (req, res) => {
     // send the user his own information
     res.json(req.user);

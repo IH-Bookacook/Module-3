@@ -6,29 +6,30 @@ const Master = require("../models/master");
 const Artist = require("../models/artist");
 const Publisher = require("../models/publisher");
 const Release = require("../models/release");
-const Series = require("../models/series");
+const Serie = require("../models/serie");
 
 function getIdFromName(array, name) {
-  return array.find(el => el.name === name)._id
+  return array.find(el => el.name === name)._id;
 }
 
 function connect(uri) {
   return mongoose.connect(uri, {
     useMongoClient: true
-  })
+  });
 }
 
 function cleanup() {
   return Release.remove({})
     .then(() => Master.remove({}))
-    .then(() => Series.remove({}))
+    .then(() => Serie.remove({}))
     .then(() => Artist.remove({}))
     .then(() => Publisher.remove({}))
-    .then(() => User.remove({}))
+    .then(() => User.remove({}));
 }
 
 function seedUsers() {
-  const users = [{
+  const users = [
+    {
       name: "Barbara Dupont",
       username: "barbara",
       email: "barbara.dupont@hotmail.fr"
@@ -43,152 +44,164 @@ function seedUsers() {
       username: "mhenri",
       email: "marc.henri@gmail.com"
     }
-  ]
+  ];
   return User.create(users).then(createdUsers => {
     return {
       users: createdUsers
-    }
-  })
+    };
+  });
 }
 
 function seedArtists(data) {
-  const {
-    users
-  } = data
-  const artists = [{
-    name: "Albert Uderzo",
-    addedBy: getIdFromName(users, "Barbara Dupont")
-  }, {
-    name: "Hergé",
-    addedBy: getIdFromName(users, "Marc Henri")
-  }, {
-    name: "Yves Chaland",
-    addedBy: getIdFromName(users, "Barbara Dupont")
-  }]
+  const { users } = data;
+  const artists = [
+    {
+      name: "Albert Uderzo",
+      addedBy: getIdFromName(users, "Barbara Dupont")
+    },
+    {
+      name: "Hergé",
+      addedBy: getIdFromName(users, "Marc Henri")
+    },
+    {
+      name: "Yves Chaland",
+      addedBy: getIdFromName(users, "Barbara Dupont")
+    }
+  ];
   return Artist.create(artists).then(createdArtists => {
-    return Object.assign({
-      artists: createdArtists
-    }, data)
-  })
+    return Object.assign(
+      {
+        artists: createdArtists
+      },
+      data
+    );
+  });
 }
 
 function seedPublishers(data) {
-  const {
-    users
-  } = data
+  const { users } = data;
 
   // Add the addedBy's
-  const publishers = [{
-    name: "Dupuis"
-    addedBy: getIdFromName(users,"Barbara Dupont")
-  }, {
-    name: "Hachette"
-    addedBy: getIdFromName(users,"Marc Henri")
-  }, {
-    name: "Pilote"
-    addedBy: getIdFromName(users,"Jean Rousseau")
-  }]
+  const publishers = [
+    {
+      name: "Dupuis",
+      addedBy: getIdFromName(users, "Barbara Dupont")
+    },
+    {
+      name: "Hachette",
+      addedBy: getIdFromName(users, "Marc Henri")
+    },
+    {
+      name: "Pilote",
+      addedBy: getIdFromName(users, "Jean Rousseau")
+    }
+  ];
 
   return Publisher.create(publishers).then(createdPublishers => {
-    return Object.assign({
-      publishers: createdPublishers
-    }, data)
-  })
+    return Object.assign(
+      {
+        publishers: createdPublishers
+      },
+      data
+    );
+  });
 }
 
 function seedSeries(data) {
-  const {
-    users
-  } = data
+  const { users } = data;
   // same fixes
-  const series = [{
-      name: "Asterix"
-      addedBy: getIdFromName(users,"Barbara Dupont")
+  const series = [
+    {
+      name: "Asterix",
+      addedBy: getIdFromName(users, "Barbara Dupont")
     },
     {
-      name: "Gaston"
-      addedBy: getIdFromName(users,"Marc Henri")
+      name: "Gaston",
+      addedBy: getIdFromName(users, "Marc Henri")
     },
     {
-      name: "Pilote"
-      addedBy: getIdFromName(users,"Jean Rousseau")
+      name: "Pilote",
+      addedBy: getIdFromName(users, "Jean Rousseau")
     },
     {
-      name: "Les Aventures de Tintin"
-      addedBy: getIdFromName(users,"Jean Rousseau")
+      name: "Les Aventures de Tintin",
+      addedBy: getIdFromName(users, "Jean Rousseau")
     }
-  ]
-  return Series.create(series).then(createdSeries => {
-    return Object.assign({
-      series: createdSeries
-    }, data)
-  })
-
+  ];
+  return Serie.create(series).then(createdSeries => {
+    return Object.assign(
+      {
+        series: createdSeries
+      },
+      data
+    );
+  });
 }
 
 function seedMasters(data) {
-  const {
-    users,
-    artists,
-    publishers,
-    series
-  } = data
-  const masters = [{
-    title: "Adolphus Claar",
-    yearFirstPublished: 1983,
-    country: "Belgium",
-    genre: "Comedy",
-    credits: [{
-      artist: getIdFromName(artists, "Yves Chaland"),
-      role: "author"
-    }],
-    image: "/static/masterCovers/Gaston.jpg",
-    publisher: [
-      getIdFromName(publishers, "Dupuis")
-    ],
-    addedBy: getIdFromName(users, "Barbara Dupont")
-  }, {
-    title: "Tintin au pays des Soviets",
-    yearFirstPublished: 1961,
-    country: "France",
-    genre: "Comedy",
-    credits: [{
-      artist: getIdFromName(artists, "Hergé"),
-      role: "author"
-    }],
-    image: "/static/masterCovers/Gaston.jpg",
-    publisher: [
-      getIdFromName(publishers, "Pilote")
-    ],
-    series: getIdFromName(series, 'Les Aventures de Tintin'),
-    numInTheSeries: "1",
-    addedBy: getIdFromName(users, "Jean Rousseau")
-
-  }, {
-    title: "La Serpe d'or",
-    yearFirstPublished: 1957,
-    country: "France",
-    genre: "Comedy",
-    credits: [{
-      artist: getIdFromName(artists, "Albert Uderzo"),
-      role: "author"
-    }],
-    image: "/static/masterCovers/Gaston.jpg",
-    publisher: [
-      getIdFromName(publishers, "Pilote")
-    ],
-    series: getIdFromName(series, 'Asterix'),
-    numInTheSeries: "1",
-    addedBy: getIdFromName(users, "Marc Henri")
-  }]
+  const { users, artists, publishers, series } = data;
+  const masters = [
+    {
+      title: "Adolphus Claar",
+      yearFirstPublished: 1983,
+      country: "Belgium",
+      genre: "Comedy",
+      credits: [
+        {
+          artist: getIdFromName(artists, "Yves Chaland"),
+          role: "author"
+        }
+      ],
+      image: "/static/masterCovers/Gaston.jpg",
+      publisher: [getIdFromName(publishers, "Dupuis")],
+      addedBy: getIdFromName(users, "Barbara Dupont")
+    },
+    {
+      title: "Tintin au pays des Soviets",
+      yearFirstPublished: 1961,
+      country: "France",
+      genre: "Comedy",
+      credits: [
+        {
+          artist: getIdFromName(artists, "Hergé"),
+          role: "author"
+        }
+      ],
+      image: "/static/masterCovers/Gaston.jpg",
+      publisher: [getIdFromName(publishers, "Pilote")],
+      series: getIdFromName(series, "Les Aventures de Tintin"),
+      numInTheSeries: "1",
+      addedBy: getIdFromName(users, "Jean Rousseau")
+    },
+    {
+      title: "La Serpe d'or",
+      yearFirstPublished: 1957,
+      country: "France",
+      genre: "Comedy",
+      credits: [
+        {
+          artist: getIdFromName(artists, "Albert Uderzo"),
+          role: "author"
+        }
+      ],
+      image: "/static/masterCovers/Gaston.jpg",
+      publisher: [getIdFromName(publishers, "Pilote")],
+      series: getIdFromName(series, "Asterix"),
+      numInTheSeries: "1",
+      addedBy: getIdFromName(users, "Marc Henri")
+    }
+  ];
   return Master.create(masters).then(createdMasters => {
-    return Object.assign({
-      masters: createdMasters
-    }, data)
-  })
+    return Object.assign(
+      {
+        masters: createdMasters
+      },
+      data
+    );
+  });
 }
 
-function seedReleases(data) {
+/*function seedReleases(data) {
   const {
     masters,
     artists,
@@ -198,11 +211,10 @@ function seedReleases(data) {
  // todo
   const releases = [
     {
-      master:
+      master:{
       releaseCountry: "France",
       releasePublisher:"Pilote",
       addedBy:getIdFromName(users, "Marc Henri")
-
     },{
       master:
       releaseCountry: "France",
@@ -221,10 +233,10 @@ function seedReleases(data) {
     return Object.assign({
       releases: createdReleases
     }, data)
-}
+}*/
 
 function disconnect() {
-  return mongoose.connection.close()
+  return mongoose.connection.close();
 }
 
 connect("mongodb://localhost/blog-lab")
@@ -234,6 +246,6 @@ connect("mongodb://localhost/blog-lab")
   .then(seedPublishers)
   .then(seedSeries)
   .then(seedMasters)
-  .then(seedReleases)
+  /*.then(seedReleases)*/
   .catch(err => console.error(err))
-  .then(disconnect)
+  .then(disconnect);
