@@ -35,10 +35,12 @@ const releaseSchema = new Schema({
     type: String
   },
   isFirstIssue: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   isCountryFirstIssue: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   image: {
     type: String

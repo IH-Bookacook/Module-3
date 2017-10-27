@@ -201,30 +201,34 @@ function seedMasters(data) {
   });
 }
 
-/*function seedReleases(data) {
+function seedReleases(data) {
   const {
     masters,
     artists,
     users,
     publishers
   } = data
- // todo
   const releases = [
     {
-      master: getIdFromName(master,"Adolphus Claar")
+      master: getIdFromName(master,"Adolphus Claar"),
       releaseCountry: "France",
       releasePublisher:"Pilote",
       addedBy:getIdFromName(users, "Marc Henri")
     },{
-      master: getIdFromName(master,"Tintin au pays des Soviets")
+      master: getIdFromName(master,"La Serpe d'or"),
       releaseCountry: "France",
       releasePublisher:"Pilote",
+      isFirstIssue: true,
+      coverType: "Rigide",
+      releaseYear: 1957,
       addedBy:getIdFromName(users, "Jean Rousseau")
 
     },{
-      master: getIdFromName(master,"La Serpe d'or")
+      master: getIdFromName(master,"La Serpe d'or"),
       releaseCountry: "France",
       releasePublisher:"Dupuis",
+      coverType: "Souple",
+      releaseYear: 1978,
       addedBy:getIdFromName(users, "Barbara Dupont")
 
     }
@@ -233,7 +237,7 @@ function seedMasters(data) {
     return Object.assign({
       releases: createdReleases
     }, data)
-}*/
+})
 
 function disconnect() {
   return mongoose.connection.close();
@@ -246,6 +250,6 @@ connect("mongodb://localhost/blog-lab")
   .then(seedPublishers)
   .then(seedSeries)
   .then(seedMasters)
-  /*.then(seedReleases)*/
+  .then(seedReleases)
   .catch(err => console.error(err))
-  .then(disconnect);
+  .then(disconnect)
