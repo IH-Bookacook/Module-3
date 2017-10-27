@@ -1,13 +1,13 @@
-const express = require('express');
-const jwt = require('jwt-simple');
+const express = require("express");
+const jwt = require("jwt-simple");
 const router = express.Router();
-const User = require('../models/user');
-const config = require('../config');
+const User = require("../models/user");
+const config = require("../config");
 
-router.post('/signup', (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   // extract the info we need from the body
   // of the request
-  const { username, name, password } = req.body;
+  const { username, name, email, password } = req.body;
 
   // create the new user
   // notice how we don't pass the password because
@@ -15,7 +15,8 @@ router.post('/signup', (req, res, next) => {
   // for us
   const user = new User({
     username,
-    name,
+    email,
+    name
   });
 
   User.register(user, password, err => {
@@ -27,7 +28,7 @@ router.post('/signup', (req, res, next) => {
 });
 // User.authenticate() returns a function
 const authenticate = User.authenticate();
-router.post('/login', (req, res, next) => {
+router.post("/login", (req, res, next) => {
   const { username, password } = req.body;
   // check if we have a username and password
   if (username && password) {
@@ -40,7 +41,7 @@ router.post('/login', (req, res, next) => {
       if (failed) {
         // failed logging (bad password, too many attempts, etc)
         return res.status(401).json({
-          error: failed.message,
+          error: failed.message
         });
       }
       if (user) {
@@ -49,7 +50,7 @@ router.post('/login', (req, res, next) => {
         // the id is usually enough because we can get back
         // the actual user by fetching the database later
         const payload = {
-          id: user.id,
+          id: user.id
         };
         // generate a token and send it
         // this token will contain the user.id encrypted
@@ -61,9 +62,9 @@ router.post('/login', (req, res, next) => {
           user: {
             name: user.name,
             username: user.username,
-            _id: user._id,
+            _id: user._id
           },
-          token,
+          token
         });
       }
     });
