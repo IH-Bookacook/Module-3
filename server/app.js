@@ -11,7 +11,7 @@ const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
-const history = require('connect-history-api-fallback')
+const history = require('express-history-api-fallback')
 
 mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true })
 

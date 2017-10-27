@@ -198,19 +198,20 @@ function seedReleases(data) {
  // todo
   const releases = [
     {
-      master:
+      master: getIdFromName(master,"Adolphus Claar")
+
       releaseCountry: "France",
       releasePublisher:"Pilote",
       addedBy:getIdFromName(users, "Marc Henri")
 
     },{
-      master:
+      master: getIdFromName(master,"Tintin au pays des Soviets")
       releaseCountry: "France",
       releasePublisher:"Pilote",
       addedBy:getIdFromName(users, "Jean Rousseau")
 
     },{
-      master:
+      master: getIdFromName(master,"La Serpe d'or")
       releaseCountry: "France",
       releasePublisher:"Dupuis",
       addedBy:getIdFromName(users, "Barbara Dupont")
