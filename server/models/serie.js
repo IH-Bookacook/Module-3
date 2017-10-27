@@ -7,6 +7,10 @@ const serieSchema = new Schema({
   },
   profile: {
     type: String
+  },
+  addedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 
