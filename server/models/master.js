@@ -10,8 +10,7 @@ const masterSchema = new Schema({
     type: Number
   },
   originalLanguage: {
-    type: String,
-    required: [true, "language is required"]
+    type: String
   },
   country: {
     type: String,
@@ -46,12 +45,10 @@ const masterSchema = new Schema({
       ref: "Publisher"
     }
   ],
-  series: [
-    {
+  series: {
       type: Schema.Types.ObjectId,
       ref: "Series"
-    }
-  ],
+  },
   numInTheSeries: {
     type: String
   },
@@ -60,7 +57,8 @@ const masterSchema = new Schema({
     ref: "User"
   },
   notes: {
-    type: String
+    type: String,
+    default: ""
   }
 });
 

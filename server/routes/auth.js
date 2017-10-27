@@ -26,7 +26,6 @@ router.post("/signup", (req, res, next) => {
     res.json({ success: true });
   });
 });
-
 // User.authenticate() returns a function
 const authenticate = User.authenticate();
 router.post("/login", (req, res, next) => {

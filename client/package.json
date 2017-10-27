@@ -12,8 +12,10 @@
   "dependencies": {
     "axios": "^0.17.0",
     "buefy": "^0.5.4",
+    "cors": "^2.8.4",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuetify": "^0.16.9"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
