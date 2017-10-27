@@ -1,31 +1,31 @@
 var express = require("express");
 var router = express.Router();
-var Master = require("../models/master");
+var Artist = require("../models/artist");
 
-/* GET all masters */
+/* GET all artists */
 router.get("/", function(req, res, next) {
-  Master.find({}).exec((err, masters) => {
+  Artist.find({}).exec((err, artists) => {
     if (err) {
       next(err);
     }
-    res.json(masters);
+    res.json(artists);
   });
 });
 
 router.get("/:id", (req, res, next) => {
-  Master.findOne(
+  Artist.findOne(
     {
       _id: req.params.id
     },
-    (err, master) => {
+    (err, artist) => {
       if (err) {
         req.flash(
           "error",
-          `There's no master available with id ${req.params.id}`
+          `There's no artist available with id ${req.params.id}`
         );
         return res.redirect("/");
       }
-      res.json(master);
+      res.json(artist);
     }
   );
 });

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ReleaseSchema = new Schema({
+const releaseSchema = new Schema({
   master: {
     type: Schema.Types.ObjectId,
     ref: "Master"
@@ -58,4 +58,6 @@ const ReleaseSchema = new Schema({
   ]
 });
 
-module.exports = mongoose.model("Release", ReleaseSchema);
+releaseSchema.set("timestamps", true);
+
+module.exports = mongoose.model("Release", releaseSchema);

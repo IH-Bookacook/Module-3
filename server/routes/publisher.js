@@ -1,31 +1,31 @@
 var express = require("express");
 var router = express.Router();
-var Master = require("../models/master");
+var Publisher = require("../models/publisher");
 
-/* GET all masters */
+/* GET all publishers */
 router.get("/", function(req, res, next) {
-  Master.find({}).exec((err, masters) => {
+  Publisher.find({}).exec((err, publishers) => {
     if (err) {
       next(err);
     }
-    res.json(masters);
+    res.json(publishers);
   });
 });
 
 router.get("/:id", (req, res, next) => {
-  Master.findOne(
+  Publisher.findOne(
     {
       _id: req.params.id
     },
-    (err, master) => {
+    (err, publisher) => {
       if (err) {
         req.flash(
           "error",
-          `There's no master available with id ${req.params.id}`
+          `There's no publisher available with id ${req.params.id}`
         );
         return res.redirect("/");
       }
-      res.json(master);
+      res.json(publisher);
     }
   );
 });

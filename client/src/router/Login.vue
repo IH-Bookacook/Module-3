@@ -12,38 +12,38 @@
             </b-input>
         </b-field>
 
-      <button class="button is-primary">Login</button>
+      <button class="button is-primary" @click.prevent="login">Login</button>
     </form>
   </div>
 </template>
 
 
 <script>
-import { login } from '@/api/auth'
+import { login } from "@/api/auth";
 
 export default {
-  data () {
+  data() {
     return {
-      username: '',
-      password: '',
-    }
+      username: "",
+      password: ""
+    };
   },
 
   methods: {
-    login () {
+    login() {
       login(this.username, this.password, this.$root).then(data => {
-        const redirect = decodeURIComponent(this.$route.query.redirect || '')
-        this.$router.push(redirect || '/')
-      })
-    },
-  },
-}
+        const redirect = decodeURIComponent(this.$route.query.redirect || "");
+        this.$router.push(redirect || "/");
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
-  form {
-    max-width: 400px;
-    margin: auto;
-  }
+form {
+  max-width: 400px;
+  margin: auto;
+}
 </style>
 

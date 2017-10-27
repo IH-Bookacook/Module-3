@@ -1,31 +1,31 @@
 var express = require("express");
 var router = express.Router();
-var Master = require("../models/master");
+var Serie = require("../models/serie");
 
-/* GET all masters */
+/* GET all series */
 router.get("/", function(req, res, next) {
-  Master.find({}).exec((err, masters) => {
+  Serie.find({}).exec((err, series) => {
     if (err) {
       next(err);
     }
-    res.json(masters);
+    res.json(series);
   });
 });
 
 router.get("/:id", (req, res, next) => {
-  Master.findOne(
+  Serie.findOne(
     {
       _id: req.params.id
     },
-    (err, master) => {
+    (err, serie) => {
       if (err) {
         req.flash(
           "error",
-          `There's no master available with id ${req.params.id}`
+          `There's no serie available with id ${req.params.id}`
         );
         return res.redirect("/");
       }
-      res.json(master);
+      res.json(serie);
     }
   );
 });
