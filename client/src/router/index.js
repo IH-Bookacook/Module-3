@@ -7,7 +7,8 @@ import Signup from "./Signup";
 import Editors from "./Editors";
 import { checkUser } from "@/api/auth";
 import AddPublisher from "./AddPublisher";
-
+import AddArtist from "./AddArtist";
+import AddSeries from "./AddSeries";
 Vue.use(Router);
 
 const router = new Router({
@@ -22,6 +23,20 @@ const router = new Router({
       component: AddPublisher,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/add-series",
+      component: AddSeries,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path:"/add-artist",
+      component: AddArtist,
+      meta: {
+          requiresAuth: true
       }
     },
     {

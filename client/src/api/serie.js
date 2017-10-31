@@ -12,6 +12,6 @@ export function getSerie(id) {
   return service.get("/${id}").then(res => res.data);
 }
 
-export function createSerie(id) {
+export function createSerie(data) {
   return service.post("/", data).then(res => res.data);
 }

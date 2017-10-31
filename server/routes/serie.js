@@ -29,5 +29,14 @@ router.get("/:id", (req, res, next) => {
     }
   );
 });
+router.post("/series", (req, res, next) => {
+  const { name,profile } = req.body;
+  //create new series
+  const series = new Series({
+    name,
+    profile
+  })
+  series.save().then(series => res.json(series));
+});
 
 module.exports = router;
