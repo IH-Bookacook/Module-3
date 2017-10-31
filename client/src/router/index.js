@@ -4,10 +4,9 @@ import Home from "./Home";
 import uploadBD from "./uploadBD";
 import Login from "./Login";
 import Signup from "./Signup";
-import BD from "./BD";
-import Authors from "./Authors";
 import Editors from "./Editors";
 import { checkUser } from "@/api/auth";
+import AddPublisher from "./AddPublisher";
 
 Vue.use(Router);
 
@@ -17,6 +16,13 @@ const router = new Router({
     {
       path: "/",
       component: Home
+    },
+    {
+      path: "/add-publisher",
+      component: AddPublisher,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/login",
@@ -36,20 +42,6 @@ const router = new Router({
         requiresNonAuth: true
       }
     },
-    {
-      path: "/BD",
-      component: BD,
-      meta: {
-        requiresNonAuth: true
-      }
-    },
-      {
-        path: "/Authors",
-        component: Authors,
-        meta: {
-          requiresNonAuth: true
-        }
-      },
         {
           path: "/Editors",
           component: Editors,
@@ -57,6 +49,7 @@ const router = new Router({
             requiresNonAuth: true
           }
         },
+
     {
       path: "/uploadBD",
       component: uploadBD,

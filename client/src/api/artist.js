@@ -12,6 +12,6 @@ export function getArtist(id) {
   return service.get("/${id}").then(res => res.data);
 }
 
-export function createArtist(id) {
+export function createArtist(data) {
   return service.post("/", data).then(res => res.data);
 }
