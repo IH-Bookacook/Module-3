@@ -14,6 +14,7 @@ router.get("/", function(req, res, next) {
   });
 });
 
+/* GET a particlar master */
 router.get("/:id", (req, res, next) => {
   Master.findOne(
     {

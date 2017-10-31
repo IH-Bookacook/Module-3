@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-/*how to handle passwords???*/
 const User = require("../models/user");
 const Master = require("../models/master");
 const Artist = require("../models/artist");
@@ -9,14 +8,14 @@ const Release = require("../models/release");
 const Serie = require("../models/serie");
 
 function getIdFromName(array, name) {
-  const el = array.find(el => el.name === name)
-  if(!el) throw Error(`Element of name ${name} not found`)
+  const el = array.find(el => el.name === name);
+  if (!el) throw Error(`Element of name ${name} not found`);
   return el._id;
 }
 
 function getIdFromTitle(array, title) {
-  const el = array.find(el => el.title === title)
-  if(!el) throw Error(`Element of title ${title} not found`)
+  const el = array.find(el => el.title === title);
+  if (!el) throw Error(`Element of title ${title} not found`);
   return el._id;
 }
 
@@ -37,22 +36,22 @@ function cleanup() {
 
 function seedUsers() {
   const users = [
-          {
-            name: "Barbara Dupont",
-            username: "barbara",
-            email: "barbara.dupont@hotmail.fr"
-          },
-          {
-            name: "Jean Rousseau",
-            username: "jrousseau",
-            email: "jean.rousseau@gmail.com"
-          },
-          {
-            name: "Marc Henri",
-            username: "mhenri",
-            email: "marc.henri@gmail.com"
-          }
-    ];
+    {
+      name: "Barbara Dupont",
+      username: "barbara",
+      email: "barbara.dupont@hotmail.fr"
+    },
+    {
+      name: "Jean Rousseau",
+      username: "jrousseau",
+      email: "jean.rousseau@gmail.com"
+    },
+    {
+      name: "Marc Henri",
+      username: "mhenri",
+      email: "marc.henri@gmail.com"
+    }
+  ];
   return User.create(users).then(createdUsers => {
     return {
       users: createdUsers
@@ -153,14 +152,14 @@ function seedMasters(data) {
       title: "Adolphus Claar",
       yearFirstPublished: 1983,
       country: "Belgium",
-      genre: "Comedy",
+      genre: "Science Fiction",
       credits: [
         {
           artist: getIdFromName(artists, "Yves Chaland"),
           role: "author"
         }
       ],
-      image: "/static/masterCovers/Gaston.jpg",
+      image: "../client/src/assets/adolphusclaarcouv.jpg",
       publisher: [getIdFromName(publishers, "Dupuis")],
       addedBy: getIdFromName(users, "Barbara Dupont")
     },
@@ -175,7 +174,7 @@ function seedMasters(data) {
           role: "author"
         }
       ],
-      image: "/static/masterCovers/Gaston.jpg",
+      image: "../client/src/assets/848456829.jpg",
       publisher: [getIdFromName(publishers, "Pilote")],
       series: getIdFromName(series, "Les Aventures de Tintin"),
       numInTheSeries: "1",
@@ -192,7 +191,7 @@ function seedMasters(data) {
           role: "author"
         }
       ],
-      image: "/static/masterCovers/Gaston.jpg",
+      image: "../client/src/assets/asterix02eo_22942.jpg",
       publisher: [getIdFromName(publishers, "Pilote")],
       series: getIdFromName(series, "Asterix"),
       numInTheSeries: "1",
@@ -210,48 +209,47 @@ function seedMasters(data) {
 }
 
 function seedReleases(data) {
-  const {
-    masters,
-    artists,
-    users,
-    publishers
-  } = data
+  const { masters, artists, users, publishers } = data;
   const releases = [
     {
       master: getIdFromTitle(masters, "Adolphus Claar"),
       releaseCountry: "France",
       releasePublisher: getIdFromName(publishers, "Pilote"),
-      addedBy:getIdFromName(users, "Marc Henri")
-    },{
-      master: getIdFromTitle(masters,"La Serpe d'or"),
+      addedBy: getIdFromName(users, "Marc Henri")
+    },
+    {
+      master: getIdFromTitle(masters, "La Serpe d'or"),
       releaseCountry: "France",
       releasePublisher: getIdFromName(publishers, "Pilote"),
       isFirstIssue: true,
       coverType: "Rigide",
       releaseYear: 1957,
-      addedBy:getIdFromName(users, "Jean Rousseau")
-
-    },{
-      master: getIdFromTitle(masters,"La Serpe d'or"),
+      addedBy: getIdFromName(users, "Jean Rousseau")
+    },
+    {
+      master: getIdFromTitle(masters, "La Serpe d'or"),
       releaseCountry: "France",
       releasePublisher: getIdFromName(publishers, "Dupuis"),
       coverType: "Souple",
       releaseYear: 1978,
-      addedBy:getIdFromName(users, "Barbara Dupont")
+      addedBy: getIdFromName(users, "Barbara Dupont")
     }
-  ]
+  ];
   return Release.create(releases).then(createdReleases => {
-    return Object.assign({
-      releases: createdReleases
-    }, data)
-});
+    return Object.assign(
+      {
+        releases: createdReleases
+      },
+      data
+    );
+  });
 }
 
 function disconnect() {
   return mongoose.connection.close();
 }
 
-connect("mongodb://localhost/blog-lab")
+connect("mongodb://localhost/bddb")
   .then(cleanup)
   .then(seedUsers)
   .then(seedArtists)
@@ -260,4 +258,4 @@ connect("mongodb://localhost/blog-lab")
   .then(seedMasters)
   .then(seedReleases)
   .catch(err => console.error(err))
-  .then(disconnect)
+  .then(disconnect);
