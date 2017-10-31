@@ -34,18 +34,18 @@
             </div>
 
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
-              <!-- <a class="navbar-item " href="BD.vue"> -->
+              <!-- <a class="navbar-item " href="Master.vue"> -->
                 <p>
                   <router-link v-if="!$root.user" to="/bd" class="navbar-item">
-                  <strong>BD</strong>
+                  <strong>BDs</strong>
                   </router-link>
 
-                  <router-link v-if="!$root.user" to="/Authors" class="navbar-item">
-                  <strong>Author</strong>
+                  <router-link v-if="!$root.user" to="/Artist" class="navbar-item">
+                  <strong>Auteurs</strong>
                   </router-link>
 
-                  <router-link v-if="!$root.user" to="/Editors" class="navbar-item">
-                  <strong>Editors</strong>
+                  <router-link v-if="!$root.user" to="/Publisher" class="navbar-item">
+                  <strong>Editeurs</strong>
                   </router-link>
                 </p>
               </a>
@@ -76,6 +76,7 @@
 
 <script>
 import { logout } from "@/api/auth";
+
 export default {
   name: "app",
   methods: {

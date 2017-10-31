@@ -1,8 +1,12 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: "http://localhost.3000/api/masters"
+  baseURL: "http://localhost:3000/api/masters"
 });
+
+export function getMasters(params) {
+  return service.get("/", { params }).then(res => res.data);
+}
 
 export function getAllMasters() {
   return service.get("/").then(res => res.data);
@@ -12,6 +16,6 @@ export function getMaster(id) {
   return service.get("/${id}").then(res => res.data);
 }
 
-export function createMaster(id) {
+export function createMaster(data) {
   return service.post("/", data).then(res => res.data);
 }

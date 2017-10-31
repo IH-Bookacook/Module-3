@@ -3,10 +3,11 @@ import Router from "vue-router";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
-import BD from "./BD";
-import Authors from "./Authors";
-import Editors from "./Editors";
+import Master from "./Master";
+import Artist from "./Artist";
+import Publisher from "./Publisher";
 import { checkUser } from "@/api/auth";
+import Browse from "./Browse";
 
 Vue.use(Router);
 
@@ -36,26 +37,21 @@ const router = new Router({
       }
     },
     {
-      path: "/BD",
-      component: BD,
-      meta: {
-        requiresNonAuth: true
-      }
+      path: "/browse",
+      component: Browse
     },
-      {
-        path: "/Authors",
-        component: Authors,
-        meta: {
-          requiresNonAuth: true
-        }
-      },
-        {
-          path: "/Editors",
-          component: Editors,
-          meta: {
-            requiresNonAuth: true
-          }
-        }
+    {
+      path: "/Master",
+      component: Master
+    },
+    {
+      path: "/Artist",
+      component: Artist
+    },
+    {
+      path: "/Publisher",
+      component: Publisher
+    }
     // {
     //   path: "/Explore",
     //   component: Explore,

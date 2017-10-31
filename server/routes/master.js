@@ -4,12 +4,26 @@ var Master = require("../models/master");
 
 /* GET all masters */
 router.get("/", function(req, res, next) {
-  Master.find({}).exec((err, masters) => {
-    if (err) {
-      next(err);
+  const maxNum = 500;
+  const num = Math.min(maxNum, req.query.num || maxNum);
+  const sortObject = {};
+  if (req.query.sort) {
+    if (req.query.order === "desc") {
+      sortObject[req.query.sort] = -1;
+    } else {
+      sortObject[req.query.sort] = 1;
     }
-    res.json(masters);
-  });
+  }
+  Master.find({})
+    .sort(sortObject)
+    .limit(num)
+    .populate("series", "name")
+    .populate("credits.artist", "name")
+    .populate("publisher", "name")
+    .populate("addedBy", "username")
+    .exec()
+    .then(masters => res.json(masters))
+    .catch(err => next(err));
 });
 
 /* GET a particlar master */
