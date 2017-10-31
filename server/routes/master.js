@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var Master = require("../models/master");
 
+
+
 /* GET all masters */
 router.get("/", function(req, res, next) {
   Master.find({}).exec((err, masters) => {

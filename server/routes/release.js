@@ -3,6 +3,18 @@ var router = express.Router();
 var Master = require("../models/master");
 var Release = require("../models/release");
 
+/* create a master by user */
+router.post("/uploadBD", (req, res, next) => {
+  const { title, releaseYear, releaseCountry, releaseLanguage, releasePublisher } = req.body;
+    const release = new Release({
+      title,
+      releaseYear,
+      releaseCountry,
+      releaseLanguage,
+      releasePublisher
+    });
+
+})
 /* get all releases related to a master */
 router.get("masters/:id/releases", (req, res, next) => {
   Release.findOne(

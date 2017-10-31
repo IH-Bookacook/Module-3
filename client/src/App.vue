@@ -27,12 +27,10 @@
 
 
           <div class="navbar-item has-dropdown is-hoverable">
+
             <div class="navbar-link">
-
               Explore
-
             </div>
-
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
               <!-- <a class="navbar-item " href="BD.vue"> -->
                 <p>
@@ -52,6 +50,10 @@
 
             </div>
           </div>
+
+          <router-link v-if="!$root.user" to="/uploadBD" class="navbar-item ">
+            uploadBD
+          </router-link>
 
           <router-link v-if="!$root.user" to="/login" class="navbar-item ">
             Login

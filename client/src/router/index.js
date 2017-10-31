@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./Home";
+import uploadBD from "./uploadBD";
 import Login from "./Login";
 import Signup from "./Signup";
 import BD from "./BD";
@@ -55,14 +56,14 @@ const router = new Router({
           meta: {
             requiresNonAuth: true
           }
-        }
-    // {
-    //   path: "/Explore",
-    //   component: Explore,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // }
+        },
+    {
+      path: "/uploadBD",
+      component: uploadBD,
+      meta: {
+        requiresNonAuth: true
+      }
+    }
   ]
 });
 

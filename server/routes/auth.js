@@ -2,7 +2,9 @@ const express = require("express");
 const jwt = require("jwt-simple");
 const router = express.Router();
 const User = require("../models/user");
+
 const config = require("../config");
+
 
 router.post("/signup", (req, res, next) => {
   // extract the info we need from the body
