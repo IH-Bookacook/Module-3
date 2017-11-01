@@ -52,12 +52,10 @@ const releaseSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  releasePublisher: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Publisher"
-    }
-  ]
+  releasePublisher: {
+    type: Schema.Types.ObjectId,
+    ref: "Publisher"
+  }
 });
 
 releaseSchema.set("timestamps", true);

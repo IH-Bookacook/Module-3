@@ -50,5 +50,14 @@ router.get("/:id/masters", (req, res, next) => {
     }
   );
 });
+router.post("/", (req, res, next) => {
+    const { name } = req.body;
+
+    //create new publisher
+    const publisher = new Publisher({
+      name
+    })
+    publisher.save().then(publisher => res.json(publisher));
+});
 
 module.exports = router;

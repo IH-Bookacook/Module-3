@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: "http://localhost.3000/api/artists"
+  baseURL: "http://localhost:3000/api/artists"
 });
 
 export function getAllArtists() {
@@ -12,6 +12,6 @@ export function getArtist(id) {
   return service.get("/${id}").then(res => res.data);
 }
 
-export function createArtist(id) {
+export function createArtist(data) {
   return service.post("/", data).then(res => res.data);
 }

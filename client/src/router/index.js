@@ -1,12 +1,17 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./Home";
+import uploadBD from "./uploadBD";
 import Login from "./Login";
 import Signup from "./Signup";
+import { checkUser } from "@/api/auth";
+import AddPublisher from "./AddPublisher";
+import AddArtist from "./AddArtist";
+import AddSeries from "./AddSeries";
+import AddRelease from "./AddRelease";
 import Master from "./Master";
 import Artist from "./Artist";
 import Publisher from "./Publisher";
-import { checkUser } from "@/api/auth";
 import Browse from "./Browse";
 
 Vue.use(Router);
@@ -17,6 +22,34 @@ const router = new Router({
     {
       path: "/",
       component: Home
+    },
+    {
+      path: "/add-publisher",
+      component: AddPublisher,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/add-release",
+      component: AddRelease,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/add-series",
+      component: AddSeries,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path:"/add-artist",
+      component: AddArtist,
+      meta: {
+          requiresAuth: true
+      }
     },
     {
       path: "/login",
@@ -37,28 +70,28 @@ const router = new Router({
       }
     },
     {
+      path: "/uploadBD",
+      component: uploadBD,
+      meta: {
+        requiresNonAuth: true
+      }
+    },
+    {
       path: "/browse",
       component: Browse
     },
     {
-      path: "/Master",
+      path: "/master",
       component: Master
     },
     {
-      path: "/Artist",
+      path: "/artist",
       component: Artist
     },
     {
-      path: "/Publisher",
+      path: "/publisher",
       component: Publisher
     }
-    // {
-    //   path: "/Explore",
-    //   component: Explore,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // }
   ]
 });
 

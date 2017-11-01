@@ -5,7 +5,7 @@
    <nav class="navbar is-transparent">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <img src="./assets/img1.jpg">
+          <img src="./assets/img2bd.png">
         </a>
         <div class="navbar-menu">
           <div class="navbar-start">
@@ -27,12 +27,10 @@
 
 
           <div class="navbar-item has-dropdown is-hoverable">
+
             <div class="navbar-link">
-
               Explore
-
             </div>
-
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
               <!-- <a class="navbar-item " href="Master.vue"> -->
                 <p>
@@ -53,6 +51,10 @@
             </div>
           </div>
 
+          <router-link v-if="!$root.user" to="/uploadBD" class="navbar-item ">
+            uploadBD
+          </router-link>
+
           <router-link v-if="!$root.user" to="/login" class="navbar-item ">
             Login
           </router-link>
@@ -68,9 +70,12 @@
 
     <section class="section">
       <div class="container">
+
         <router-view></router-view>
+
       </div>
     </section>
+
   </div>
 </template>
 

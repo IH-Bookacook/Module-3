@@ -50,5 +50,14 @@ router.get("/:id/masters", (req, res, next) => {
     }
   );
 });
+router.post("/", (req, res, next) => {
+  const { name } = req.body;
+
+  //create new artist
+  const artist = new Artist({
+    name
+  })
+  artist.save().then(artist => res.json(artist));
+});
 
 module.exports = router;
