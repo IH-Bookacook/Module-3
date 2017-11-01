@@ -1,17 +1,17 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: "http://localhost.3000/api/series"
+  baseURL: "http://localhost:3000/api/series"
 });
 
 export function getAllSeries() {
-  return service.get("/").then(res => res.data);
+  return service.get(`/`).then(res => res.data);
 }
 
 export function getSerie(id) {
-  return service.get("/${id}").then(res => res.data);
+  return service.get(`/${id}`).then(res => res.data);
 }
 
-export function createSerie(data) {
-  return service.post("/", data).then(res => res.data);
+export function createSeries(data) {
+  return service.post(`/`, data).then(res => res.data);
 }

@@ -5,7 +5,7 @@
    <nav class="navbar is-transparent">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
-          <img src="./assets/img1.jpg">
+          <img src="./assets/img2bd.png">
         </a>
         <div class="navbar-menu">
           <div class="navbar-start">
@@ -70,9 +70,12 @@
 
     <section class="section">
       <div class="container">
+
         <router-view></router-view>
+
       </div>
     </section>
+
   </div>
 </template>
 

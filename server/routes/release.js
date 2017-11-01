@@ -48,5 +48,17 @@ router.get("/releases/:id", (req, res, next) => {
     }
   );
 });
+router.post("/releases", (req, res, next) => {
+  const{ title, releaseYear, releaseCountry, releaseLanguage } = req.body;
+
+  //create new release
+  const release = new Release({
+    title,
+    releaseYear,
+    releaseCountry,
+    releaseLanguage
+  })
+  release.save().then(release => res.json(release));
+})
 
 module.exports = router;

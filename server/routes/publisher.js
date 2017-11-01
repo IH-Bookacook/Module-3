@@ -50,7 +50,7 @@ router.get("/:id/masters", (req, res, next) => {
     }
   );
 });
-router.post("/publisher", (req, res, next) => {
+router.post("/", (req, res, next) => {
     const { name } = req.body;
 
     //create new publisher

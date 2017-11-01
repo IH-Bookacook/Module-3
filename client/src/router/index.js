@@ -8,6 +8,7 @@ import { checkUser } from "@/api/auth";
 import AddPublisher from "./AddPublisher";
 import AddArtist from "./AddArtist";
 import AddSeries from "./AddSeries";
+import AddRelease from "./AddRelease";
 import Master from "./Master";
 import Artist from "./Artist";
 import Publisher from "./Publisher";
@@ -25,6 +26,13 @@ const router = new Router({
     {
       path: "/add-publisher",
       component: AddPublisher,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/add-release",
+      component: AddRelease,
       meta: {
         requiresAuth: true
       }

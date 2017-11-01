@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
-var Serie = require("../models/serie");
+var Series = require("../models/serie");
 
 /* GET all series */
 router.get("/", function(req, res, next) {
-  Serie.find({}).exec((err, series) => {
+  Serie.find({}).exec((err, serie) => {
     if (err) {
       next(err);
     }
-    res.json(series);
+    res.json(serie);
   });
 });
 
@@ -29,14 +29,15 @@ router.get("/:id", (req, res, next) => {
     }
   );
 });
-router.post("/series", (req, res, next) => {
-  const { name,profile } = req.body;
+router.post("/", (req, res, next) => {
+  const { name, profile } = req.body;
   //create new series
   const series = new Series({
     name,
     profile
   })
   series.save().then(series => res.json(series));
+
 });
 
 module.exports = router;

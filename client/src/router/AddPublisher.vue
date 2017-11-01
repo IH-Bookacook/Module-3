@@ -5,12 +5,12 @@
   </b-notification>
   <form @submit.prevent="addPublisher()">
 
-    <p>Ajouter un éditeur</p>
+    <p>Ajouter un publisher</p>
 
-    <b-field label="Nom de l'éditeur">
+    <b-field label="Nom de Publisher">
       <b-input v-model="name"></b-input>
     </b-field>
-    <button class="button is-primary">Créer éditeur</button>
+    <button class="button is-primary">Créer publisher</button>
   </form>
 </div>
 </template>
