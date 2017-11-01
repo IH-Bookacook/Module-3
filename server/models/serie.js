@@ -16,4 +16,4 @@ const serieSchema = new Schema({
 
 serieSchema.set("timestamps", true);
 
-module.exports = mongoose.model("Serie", serieSchema);
+module.exports = mongoose.model("Series", serieSchema);

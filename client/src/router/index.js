@@ -4,11 +4,15 @@ import Home from "./Home";
 import uploadBD from "./uploadBD";
 import Login from "./Login";
 import Signup from "./Signup";
-import Editors from "./Editors";
 import { checkUser } from "@/api/auth";
 import AddPublisher from "./AddPublisher";
 import AddArtist from "./AddArtist";
 import AddSeries from "./AddSeries";
+import Master from "./Master";
+import Artist from "./Artist";
+import Publisher from "./Publisher";
+import Browse from "./Browse";
+
 Vue.use(Router);
 
 const router = new Router({
@@ -57,20 +61,28 @@ const router = new Router({
         requiresNonAuth: true
       }
     },
-        {
-          path: "/Editors",
-          component: Editors,
-          meta: {
-            requiresNonAuth: true
-          }
-        },
-
     {
       path: "/uploadBD",
       component: uploadBD,
       meta: {
         requiresNonAuth: true
       }
+    },
+    {
+      path: "/browse",
+      component: Browse
+    },
+    {
+      path: "/master",
+      component: Master
+    },
+    {
+      path: "/artist",
+      component: Artist
+    },
+    {
+      path: "/publisher",
+      component: Publisher
     }
   ]
 });

@@ -24,7 +24,7 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// what is this ??????
+// allows server to accpet queries from client
 if (app.get("env") === "development") {
   app.use(
     cors({
