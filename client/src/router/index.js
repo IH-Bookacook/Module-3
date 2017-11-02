@@ -40,6 +40,7 @@ const router = new Router({
         requiresAuth: true
       }
     },
+
     {
       path: "/add-release",
       component: AddRelease,
