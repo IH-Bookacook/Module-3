@@ -70,7 +70,7 @@ const userRoutes = require("./routes/user");
 const releaseRoutes = require("./routes/release");
 
 app.use("/api", authRoutes);
-app.use("/api/masters", masterRoutes);
+app.use("/api/master", masterRoutes);
 app.use("/api/artists", artistRoutes);
 app.use("/api/publishers", publisherRoutes);
 app.use("/api/series", serieRoutes);

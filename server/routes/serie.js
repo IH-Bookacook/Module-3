@@ -4,7 +4,7 @@ var Series = require("../models/serie");
 
 /* GET all series */
 router.get("/", function(req, res, next) {
-  Serie.find({}).exec((err, serie) => {
+  Series.find({}).exec((err, serie) => {
     if (err) {
       next(err);
     }
@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/:id", (req, res, next) => {
-  Serie.findOne(
+  Series.findOne(
     {
       _id: req.params.id
     },

@@ -46,5 +46,11 @@ router.get("/:id", (req, res, next) => {
     }
   );
 });
+router.post("/", (req, res, next) => {
+  const master = new Master(req.body)
+  master.save()
+    .then(master => res.json(master))
+    .catch(err => next(err));
+});
 
 module.exports = router;
