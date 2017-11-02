@@ -1,4 +1,5 @@
-<template>
+<!--
+*<template>
 <div>
   <b-notification v-if="error" type="is-danger" has-icon>
     {{ error.message }}
@@ -41,7 +42,7 @@
               </b-field>
           </template> -->
 
-      </b-input>
+<!-- </b-input>
     </b-field>
     <button class="button is-primary" @click.prevent="uploadBD">uploadBD</button>
   </form>
@@ -84,3 +85,4 @@ export default {
   }
 };
 </script>
+-->

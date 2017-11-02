@@ -4,6 +4,10 @@ const service = axios.create({
   baseURL: "http://localhost:3000/api/artists"
 });
 
+export function getArtists(params) {
+  return service.get(`/`, { params }).then(res => res.data);
+}
+
 export function getAllArtists() {
   return service.get("/").then(res => res.data);
 }

@@ -34,15 +34,15 @@
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
               <!-- <a class="navbar-item " href="Master.vue"> -->
                 <p>
-                  <router-link v-if="!$root.user" to="/bd" class="navbar-item">
+                  <router-link  to="/browse" class="navbar-item">
                   <strong>BDs</strong>
                   </router-link>
 
-                  <router-link v-if="!$root.user" to="/Artist" class="navbar-item">
+                  <router-link  to="/browseArtists" class="navbar-item">
                   <strong>Auteurs</strong>
                   </router-link>
 
-                  <router-link v-if="!$root.user" to="/Publisher" class="navbar-item">
+                  <router-link  to="/browsePublishers" class="navbar-item">
                   <strong>Editeurs</strong>
                   </router-link>
                 </p>
