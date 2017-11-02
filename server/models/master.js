@@ -39,7 +39,7 @@ const masterSchema = new Schema({
   image: {
     type: String
   },
-  publisher: [
+  publishers: [
     {
       type: Schema.Types.ObjectId,
       ref: "Publisher"
