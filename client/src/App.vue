@@ -1,12 +1,15 @@
 <template>
-  <div id="app" style="background-color: lightblue">
+  <div id="app" style="background-color: lightblue; height: 100vh">
 
    <nav class="navbar is-transparent">
+
       <div class="navbar-brand">
+
         <a class="navbar-item" href="/">
           <img src="./assets/img2bd.png">
         </a>
         <div class="navbar-menu">
+
           <div class="navbar-start">
 
             <router-link v-if="!$root.user" to="/" class="navbar-item ">
@@ -18,12 +21,13 @@
           <span></span>
           <span></span>
           <span></span>
-          <background-color: red
+
         </div>
       </div>
 
       <div id="navMenuTransparentExample" class="navbar-menu">
-          <div class="navbar-end">
+
+          <div class="navbar-end" >
 
 
           <div class="navbar-item has-dropdown is-hoverable">
@@ -69,11 +73,13 @@
     </nav>
 
     <section class="section">
+
       <div class="container">
 
         <router-view></router-view>
 
       </div>
+
     </section>
 
   </div>
@@ -92,3 +98,8 @@ export default {
   }
 };
 </script>
+<style>
+.navMenuTransparentExample {
+  color: grey;
+}
+</style>
