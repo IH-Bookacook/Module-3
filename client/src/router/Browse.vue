@@ -1,8 +1,8 @@
 <template>
   <div>
       <h1>Additions récentes...</h1>
-      <ul>
-          <li v-for="master in masters" :key="master._id">
+      <ul class="container">
+          <li v-for="master in masters" :key="master._id" >
               <master-card :master="master"></master-card>    
           </li>
       </ul>
@@ -32,5 +32,10 @@ export default {
 </script>
 
 <style>
-
+.container {
+  display: block;
+  margin-bottom: 34px;
+  display: flex;
+  align-items: center;
+}
 </style>

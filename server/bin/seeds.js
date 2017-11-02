@@ -159,7 +159,7 @@ function seedMasters(data) {
           role: "author"
         }
       ],
-      image: "../client/src/assets/adolphusclaarcouv.jpg",
+      image: "adolphusclaarcouv.jpg",
       publisher: [getIdFromName(publishers, "Dupuis")],
       addedBy: getIdFromName(users, "Barbara Dupont")
     },
@@ -174,7 +174,7 @@ function seedMasters(data) {
           role: "author"
         }
       ],
-      image: "../client/src/assets/848456829.jpg",
+      image: "848456829.jpg",
       publisher: [getIdFromName(publishers, "Pilote")],
       series: getIdFromName(series, "Les Aventures de Tintin"),
       numInTheSeries: "1",
@@ -191,7 +191,7 @@ function seedMasters(data) {
           role: "author"
         }
       ],
-      image: "../client/src/assets/asterix02eo_22942.jpg",
+      image: "asterix02eo_22942.jpg",
       publisher: [getIdFromName(publishers, "Pilote")],
       series: getIdFromName(series, "Asterix"),
       numInTheSeries: "1",
