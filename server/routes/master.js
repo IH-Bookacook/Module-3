@@ -46,5 +46,17 @@ router.get("/:id", (req, res, next) => {
     }
   );
 });
+router.post("/", (req, res, next) => {
+  const { title, yearFirstPublished, originalLanguage, country, genre, awards } = req.body;
+  const master = new Master({
+    title,
+    yearFirstPublished,
+    originalLanguage,
+    country,
+    genre,
+    awards
+  })
+  master.save().then(master => res.json(master));
+});
 
 module.exports = router;
