@@ -5,6 +5,7 @@ import uploadBD from "./uploadBD";
 import Login from "./Login";
 import Signup from "./Signup";
 import { checkUser } from "@/api/auth";
+import AddMaster from "./addMaster";
 import AddPublisher from "./AddPublisher";
 import AddArtist from "./AddArtist";
 import AddSeries from "./AddSeries";
@@ -22,6 +23,13 @@ const router = new Router({
     {
       path: "/",
       component: Home
+    },
+    {
+      path: "/add-master",
+      component: AddMaster,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/add-publisher",

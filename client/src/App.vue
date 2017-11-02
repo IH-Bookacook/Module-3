@@ -1,6 +1,5 @@
 <template>
-  <div id="app">
-
+  <div id="app" style="background-color: lightblue">
 
    <nav class="navbar is-transparent">
       <div class="navbar-brand">
@@ -19,6 +18,7 @@
           <span></span>
           <span></span>
           <span></span>
+          <background-color: red
         </div>
       </div>
 

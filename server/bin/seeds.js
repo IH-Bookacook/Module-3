@@ -52,10 +52,25 @@ function seedUsers() {
       email: "marc.henri@gmail.com"
     }
   ];
-  return User.create(users).then(createdUsers => {
+  const reshma =
+    {
+      name: "Reshma Patel",
+      username: "reshma",
+      email: "rp@gmail.com"
+    }
+
+  return Promise.all([
+    new Promise((resolve, reject) => {
+      User.register(reshma, "patel", (err, user) => {
+        if(err) reject(err)
+        else resolve(user)
+      })
+    }),
+    User.create(users)
+  ]).then(([createdReshma, createdUsers]) => {
     return {
-      users: createdUsers
-    };
+      users: createdUsers.concat([reshma])
+    }
   });
 }
 
