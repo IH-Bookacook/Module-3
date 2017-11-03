@@ -14,6 +14,8 @@ import Master from "./Master";
 import Artist from "./Artist";
 import Publisher from "./Publisher";
 import Browse from "./Browse";
+import BrowseArtists from "./BrowseArtists";
+import BrowsePublishers from "./BrowsePublishers";
 
 Vue.use(Router);
 
@@ -54,10 +56,10 @@ const router = new Router({
       }
     },
     {
-      path:"/add-artist",
+      path: "/add-artist",
       component: AddArtist,
       meta: {
-          requiresAuth: true
+        requiresAuth: true
       }
     },
     {
@@ -88,6 +90,14 @@ const router = new Router({
     {
       path: "/browse",
       component: Browse
+    },
+    {
+      path: "/browseArtists",
+      component: BrowseArtists
+    },
+    {
+      path: "/browsePublishers",
+      component: BrowsePublishers
     },
     {
       path: "/master",

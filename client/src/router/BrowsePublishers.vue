@@ -2,30 +2,30 @@
   <div>
       <h1>Additions récentes...</h1>
       <ul class="container">
-          <li v-for="master in masters" :key="master._id" >
-              <master-card :master="master"></master-card>    
+          <li v-for="publisher in publishers" :key="publisher._id" >
+              <publisher-card :publisher="publisher"></publisher-card>    
           </li>
       </ul>
      </div>
 </template>
 
 <script>
-import { getMasters } from "@/api/master";
-import MasterCard from "@/components/MasterCard";
+import { getPublishers } from "@/api/publisher";
+import PublisherCard from "@/components/PublisherCard";
 
 export default {
   components: {
-    MasterCard
+    PublisherCard
   },
   data() {
     return {
-      masters: []
+      publishers: []
     };
   },
   methods: {},
   created() {
-    getMasters({ num: 20, sort: "createdAt", order: "desc" }).then(
-      masters => (this.masters = masters)
+    getPublishers({ num: 20, sort: "name", order: "asc" }).then(
+      publishers => (this.publishers = publishers)
     );
   }
 };
