@@ -19,6 +19,9 @@
             Pas de collection trouvée.
             <router-link to="/add-series" class="button is-primary">
               En créer une
+              <b-field label="Nom de la series">
+                <b-input v-model="name"></b-input>
+                </b-field>
             </router-link>
           </template>
         </b-autocomplete>

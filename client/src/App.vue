@@ -1,11 +1,11 @@
 <template>
-  <div id="app" style="background-color: lightblue; height: 100vh">
+  <div id="app" style="background-color:white; height: 100vh">
 
    <nav class="navbar is-transparent">
 
-      <div class="navbar-brand">
+      <div class="navbar-brand" >
 
-        <a class="navbar-item" href="/">
+        <a class="navbar-item" href="/" >
           <img src="./assets/img2bd.png">
         </a>
         <div class="navbar-menu">
@@ -13,7 +13,7 @@
           <div class="navbar-start">
 
             <router-link v-if="!$root.user" to="/" class="navbar-item ">
-              Home
+
             </router-link>
           </div>
         </div>
@@ -55,9 +55,7 @@
             </div>
           </div>
 
-          <router-link v-if="!$root.user" to="/uploadBD" class="navbar-item ">
-            uploadBD
-          </router-link>
+
 
           <router-link v-if="!$root.user" to="/login" class="navbar-item ">
             Login
@@ -68,19 +66,30 @@
           <a class="navbar-item" @click.prevent="logout" v-if="$root.user" href="#">
             Logout
           </a>
+
         </div>
       </div>
     </nav>
 
     <section class="section">
 
-      <div class="container">
+<div class="bkgimg">
 
-        <router-view></router-view>
+  <div class="container">
 
-      </div>
+    <router-view></router-view>
+
+  </div>
+
+</div>
+
 
     </section>
+
+    <footer id="bg-img">
+
+    </footer>
+
 
   </div>
 </template>
@@ -99,7 +108,59 @@ export default {
 };
 </script>
 <style>
-.navMenuTransparentExample {
-  color: grey;
+#contain {
+  font-style: oblique;
+  font-family: fantasy;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
+#bg-img {
+  background-color: black;
+  height: 15vh;
+  width: 100%;
+  /*background:url(./assets/bgimg1.png);*/
+  position: fixed;
+  bottom: 0;
+}
+
+#navMenuTransparentExample{
+  font-style: oblique;
+  font-family: fantasy;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+
+}
+.container {
+position: relative;
+margin-top: 20px;
+  height: 400px;
+  width: 600px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: lightgrey;
+  border-radius: 20px;
+  opacity: 0.8;
+  background-color: white
+}
+.navbaris-transparent {
+
+}
+
+.bkgimg{
+  background:url(./assets/bgimg1.png);
+}
+.navbar-item img {
+  max-height: 4rem;
+}
+
+#app form .label {
+  font-style: oblique;
+  font-family: fantasy;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
 }
 </style>
