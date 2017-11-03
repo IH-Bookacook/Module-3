@@ -71,9 +71,9 @@
       </div>
     </nav>
 
-    <section class="section">
+    <section class="section bkgimg">
 
-<div class="bkgimg">
+<div class="">
 
   <div class="container">
 
@@ -108,10 +108,15 @@ export default {
 };
 </script>
 <style>
+@font-face {
+    font-family: smilingCat;
+    src: url(./assets/smiling_cat.otf);
+}
+
 #contain {
   font-style: oblique;
-  font-family: fantasy;
-  font-weight: bold;
+  font-family: smilingCat;
+  font-weight: normal;
   color: black;
   font-size: 20px;
 }
@@ -127,8 +132,8 @@ export default {
 
 #navMenuTransparentExample{
   font-style: oblique;
-  font-family: fantasy;
-  font-weight: bold;
+  font-family: smilingCat;
+  font-weight: normal;
   color: white;
   font-size: 20px;
 
@@ -137,12 +142,12 @@ export default {
 position: relative;
 margin-top: 20px;
   height: 400px;
-  width: 600px;
+  max-width: 600px;
   border-style: solid;
   border-width: 0.5px;
   border-color: lightgrey;
   border-radius: 20px;
-  opacity: 0.8;
+  opacity: 0.97;
   background-color: white
 }
 .navbaris-transparent {
@@ -150,7 +155,10 @@ margin-top: 20px;
 }
 
 .bkgimg{
-  background:url(./assets/bgimg1.png);
+  background:url(./assets/bgimg8.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .navbar-item img {
   max-height: 4rem;
@@ -158,8 +166,8 @@ margin-top: 20px;
 
 #app form .label {
   font-style: oblique;
-  font-family: fantasy;
-  font-weight: bold;
+  font-family: smilingCat;
+  font-weight: normal;
   color: black;
   font-size: 20px;
 }
