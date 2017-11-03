@@ -3,7 +3,7 @@
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="" alt="Artist image">
+      <img :src="getUrl(artist.image)" alt="Artist image">
     </figure>
   </div>
   <div class="card-content">
@@ -26,13 +26,22 @@
 
 <script>
 export default {
-  props: ["artist"]
+  props: ["artist"],
+  methods: {
+    getUrl(filename) {
+      return require("../assets/" + filename);
+    }
+  }
 };
 </script>
 
 <style>
 div {
   display: block;
+}
+
+.card-image {
+  padding-left: 8px;
 }
 
 .card {

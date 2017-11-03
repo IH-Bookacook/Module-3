@@ -100,7 +100,7 @@ const router = new Router({
       component: BrowsePublishers
     },
     {
-      path: "/master",
+      path: "/masters/:id",
       component: Master
     },
     {

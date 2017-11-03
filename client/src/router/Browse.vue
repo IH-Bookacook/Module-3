@@ -32,10 +32,11 @@ export default {
 </script>
 
 <style>
-.container {
-  display: block;
-  margin-bottom: 34px;
+ul {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 </style>

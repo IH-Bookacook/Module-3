@@ -125,17 +125,16 @@ export default {
   bottom: 0;
 }
 
-#navMenuTransparentExample{
+#navMenuTransparentExample {
   font-style: oblique;
   font-family: fantasy;
   font-weight: bold;
   color: white;
   font-size: 20px;
-
 }
 .container {
-position: relative;
-margin-top: 20px;
+  position: relative;
+  margin-top: 20px;
   height: 400px;
   width: 600px;
   border-style: solid;
@@ -143,14 +142,13 @@ margin-top: 20px;
   border-color: lightgrey;
   border-radius: 20px;
   opacity: 0.8;
-  background-color: white
+  background-color: white;
 }
 .navbaris-transparent {
-
 }
 
-.bkgimg{
-  background:url(./assets/bgimg1.png);
+.bkgimg {
+  background: url(./assets/bgimg1.png);
 }
 .navbar-item img {
   max-height: 4rem;

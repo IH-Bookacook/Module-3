@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
 
 <div class="card">
@@ -10,14 +9,14 @@
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4">{{master.title}}</p>
-              </div>
+        <router-link  :to="`/masters/${master._id}`"><p class="title is-4">{{master.title}}</p></router-link>
+      </div>
     </div>
 
     <div class="content">
       <div class="info">
             <p>Auteur : {{master.credits[0].artist.name}}</p>
-            <p>Série : {{master.series.name}}</p>
+            <p v-if="master.series">Série : {{master.series.name}}</p>
             <p>Ajouté par : {{master.addedBy.username}}</p>
                               </div>
     </div>
@@ -28,6 +27,8 @@
 </template>
 
 <script>
+import DetailedMasterCard from "@/components/DetailedMasterCard";
+
 export default {
   props: ["master"],
   methods: {
@@ -44,9 +45,14 @@ div {
 }
 
 .card {
+  margin-right: 20px;
   margin-bottom: 34px;
   display: flex;
   align-items: center;
+}
+
+.card-image {
+  padding-left: 8px;
 }
 
 .image {
@@ -71,5 +77,3 @@ img display block fixed width / height
 h3 title class master title
 
 */
-=======
->>>>>>> 12bb03d5c85f9007d2a948c28a0f56c1d83ecb7f

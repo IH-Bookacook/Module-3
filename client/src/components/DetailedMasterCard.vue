@@ -1,45 +1,45 @@
 <template>
 
-<div>
-
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img src="" alt="Artist image">
+      <img :src="getUrl(master.image)" alt="Placeholder image">
     </figure>
   </div>
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4">{{publisher.name}}</p>
+        <p class="title is-4">{{master.title}}</p>
               </div>
     </div>
 
     <div class="content">
       <div class="info">
-            <p>Profil : {{publisher.profile}}</p>
+            <p>Auteur : {{master.credits[0].artist.name}}</p>
+            <p>Série : {{master.series.name}}</p>
+            <p>Ajouté par : {{master.addedBy.username}}</p>
       </div>
     </div>
   </div>
 </div>
 
-</div>
     
 </template>
 
 <script>
 export default {
-  props: ["publisher"]
+  props: ["master"],
+  methods: {
+    getUrl(filename) {
+      return require("../assets/" + filename);
+    }
+  }
 };
 </script>
 
 <style>
 div {
   display: block;
-}
-
-.card-image {
-  padding-left: 8px;
 }
 
 .card {
