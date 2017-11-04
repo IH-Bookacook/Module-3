@@ -45,7 +45,10 @@ div {
 }
 
 .card {
-  margin-bottom: 34px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 40px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Additions récentes...</h1>
-      <ul class="container">
+      <ul>
           <li v-for="master in masters" :key="master._id" >
               <master-card :master="master"></master-card>    
           </li>

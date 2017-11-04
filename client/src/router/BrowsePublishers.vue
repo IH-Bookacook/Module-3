@@ -1,7 +1,7 @@
 <template>
   <div>
       <h1>Additions récentes...</h1>
-      <ul class="container">
+      <ul>
           <li v-for="publisher in publishers" :key="publisher._id" >
               <publisher-card :publisher="publisher"></publisher-card>    
           </li>

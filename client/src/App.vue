@@ -1,7 +1,8 @@
 <template>
+
   <div id="app" style="background-color:white; height: 100vh">
 
-   <nav class="navbar is-transparent">
+   <nav class="navbar">
 
       <div class="navbar-brand" >
 
@@ -73,27 +74,16 @@
       </div>
     </nav>
 
-    <section class="section bkgimg">
+    
+    <router-view>Home</router-view>
 
-<div class="">
+  
 
-  <div class="container">
-
-    <router-view></router-view>
-
-  </div>
-
-</div>
-
-
-    </section>
-
-    <footer id="bg-img">
-
-    </footer>
 
 
   </div>
+
+
 </template>
 
 <script>
@@ -123,6 +113,18 @@ export default {
   font-size: 20px;
 }
 
+#navMenuTransparentExample {
+  font-style: oblique;
+  font-family: smilingCat;
+  font-weight: normal;
+  color: white;
+  font-size: 20px;
+}
+
+.navcol {
+  color: #00fdc8ff;
+}
+
 #bg-img {
   background-color: black;
   height: 15vh;
@@ -132,34 +134,6 @@ export default {
   bottom: 0;
 }
 
-#navMenuTransparentExample {
-  font-style: oblique;
-  font-family: smilingCat;
-  font-weight: normal;
-  color: white;
-  font-size: 20px;
-}
-.container {
-  position: relative;
-  margin-top: 20px;
-  height: 400px;
-  max-width: 600px;
-  border-style: solid;
-  border-width: 0.5px;
-  border-color: lightgrey;
-  border-radius: 20px;
-  opacity: 0.97;
-  background-color: white;
-}
-.navbaris-transparent {
-}
-
-.bkgimg {
-  background: url(./assets/bgimg8.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 .navbar-item img {
   max-height: 4rem;
 }

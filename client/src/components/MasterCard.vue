@@ -18,7 +18,7 @@
             <p>Auteur : {{master.credits[0].artist.name}}</p>
             <p v-if="master.series">Série : {{master.series.name}}</p>
             <p>Ajouté par : {{master.addedBy.username}}</p>
-                              </div>
+       </div>
     </div>
   </div>
 </div>
@@ -45,8 +45,10 @@ div {
 }
 
 .card {
-  margin-right: 20px;
-  margin-bottom: 34px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 40px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
