@@ -1,6 +1,7 @@
 <template>
   <div>
-      <h1>Fiche détaillée</h1>
+    <br>
+      <h1 style="margin-left:20px;color:#e01111"><b>Fiche détaillée :</b></h1>
       <detailed-master-card :master="master"></detailed-master-card>    
   </div>
 </template>

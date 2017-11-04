@@ -3,7 +3,7 @@
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img :src="getUrl(master.image)" alt="Placeholder image">
+      <router-link  :to="`/masters/${master._id}`"><<img :src="getUrl(master.image)" alt="Placeholder image"></router-link>
     </figure>
   </div>
   <div class="card-content">
@@ -15,9 +15,9 @@
 
     <div class="content">
       <div class="info">
-            <p>Auteur : {{master.credits[0].artist.name}}</p>
-            <p v-if="master.series">Série : {{master.series.name}}</p>
-            <p>Ajouté par : {{master.addedBy.username}}</p>
+            <p><b>Auteur :</b> {{master.credits[0].artist.name}}</p>
+            <p v-if="master.series"><b>Série :</b> {{master.series.name}}</p>
+            <p><b>Ajouté par :</b> {{master.addedBy.username}}</p>
        </div>
     </div>
   </div>

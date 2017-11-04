@@ -15,9 +15,16 @@
 
     <div class="content">
       <div class="info">
-            <p>Auteur : {{master.credits[0].artist.name}}</p>
-            <p>Série : {{master.series.name}}</p>
-            <p>Ajouté par : {{master.addedBy.username}}</p>
+            <p><b>Auteur :</b> {{master.credits[0].artist.name}}</p>
+            <p v-if="master.series"><b>Série :</b> {{master.series.name}}</p>
+            <p v-if="master.publishers.length !==0"><b>Editeur :</b> {{master.publishers[0].name}}</p>
+            <p v-if="master.yearFirstPublished"><b>Année de parution :</b> {{master.yearFirstPublished}}</p>
+            <p v-if="master.originalLanguage"><b>Langue :</b> {{master.originalLanguage}}</p>
+            <p v-if="master.country"><b>Pays :</b> {{master.country}}</p>
+            <p v-if="master.genre"><b>Genre :</b> {{master.genre}}</p>
+            <p v-if="master.awards.length !==0"><b>Récompenses :</b> {{master.awards}}</p>
+            <p><b>Ajouté par :</b> {{master.addedBy.username}}</p>
+
       </div>
     </div>
   </div>
@@ -46,6 +53,8 @@ div {
   margin-bottom: 34px;
   display: flex;
   align-items: center;
+  width: 600px;
+  margin-left: 20px;
 }
 
 .image {
