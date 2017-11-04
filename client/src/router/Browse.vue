@@ -1,6 +1,7 @@
 <template>
   <div>
-      <h1>Additions récentes...</h1>
+    <br>
+      <h1 style="margin-left:20px;color:#e01111"><b>Additions récentes...</b></h1>
       <ul>
           <li v-for="master in masters" :key="master._id" >
               <master-card :master="master"></master-card>    

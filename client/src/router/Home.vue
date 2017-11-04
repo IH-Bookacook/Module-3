@@ -23,11 +23,12 @@
 
 <style>
 #home {
+  padding-top: 15px;
   font-family: smilingCat;
   font-style: oblique;
-  font-size: 90px;
+  font-size: 80px;
   text-align: center;
-  color: #ff0000;
+  color: #e01111;
 }
 #words {
   font-family: smilingCat;
@@ -51,7 +52,7 @@
 
 .container {
   position: relative;
-  top: 50px;
+  top: 100px;
   height: 400px;
   max-width: 600px;
   border-style: solid;

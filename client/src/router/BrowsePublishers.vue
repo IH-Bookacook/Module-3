@@ -1,6 +1,8 @@
 <template>
   <div>
-      <h1>Additions récentes...</h1>
+      <br>
+      <h1 style="margin-left:20px;color:#e01111"><b>Additions récentes...</b></h1>
+      
       <ul>
           <li v-for="publisher in publishers" :key="publisher._id" >
               <publisher-card :publisher="publisher"></publisher-card>    
