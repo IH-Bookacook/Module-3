@@ -34,7 +34,7 @@
           <div class="navbar-item has-dropdown is-hoverable">
 
             <div class="navbar-link">
-              Explore
+              Explorer
             </div>
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
               <!-- <a class="navbar-item " href="Master.vue"> -->
@@ -53,9 +53,44 @@
                   <strong>Editeurs</strong>
                   </router-link>
                 </p>
-              </a>
-
+              
             </div>
+
+          </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+
+            <div class="navbar-link">
+              Contribuer
+            </div>
+            <div id="exploreDropdown" class="navbar-dropdown is-boxed">
+              <!-- <a class="navbar-item " href="Master.vue"> -->
+                <p>
+
+                  <router-link  to="/add-master" class="navbar-item">
+                  <strong>Ajouter une BD</strong>
+                  </router-link>
+
+                  <router-link  to="/add-release" class="navbar-item">
+                  <strong>Ajouter une édition</strong>
+                  </router-link>
+
+                  <router-link  to="/add-series" class="navbar-item">
+                  <strong>Ajouter une série</strong>
+                  </router-link>
+
+                  <router-link  to="/add-publisher" class="navbar-item">
+                  <strong>Ajouter un éditeur</strong>
+                  </router-link>
+
+                  <router-link  to="/add-artist" class="navbar-item">
+                  <strong>Ajouter un artiste</strong>
+                  </router-link>
+                </p>
+              
+            </div>
+
+            
           </div>
 
 
