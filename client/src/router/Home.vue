@@ -9,8 +9,10 @@
         <h3>DECOUVREZ, CONTRIBUEZ</h3>
         <h3>ECHANGEZ AVEC LA COMMUNAUTE</h3>
         <br>
-        <button type="button" name="DECOUVREZ">DECOUVREZ</button>
-        <button type="button" name="CONTRIBUEZ">CONTRIBUEZ</button>
+        <a class="button is-danger button is-large is-active" style="background-color:#4772b7" ><router-link to="/browse" style="color:#f5f5f5">
+                  DECOUVREZ</router-link></a>
+        <a class="button is-danger button is-large is-active" style="background-color:#4772b7" ><router-link to="/add-master" style="color:#f5f5f5">
+                  CONTRIBUEZ</router-link></a>
 
     </div>
   </div>
