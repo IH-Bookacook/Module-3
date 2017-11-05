@@ -42,7 +42,17 @@ export default {
 
 <style scoped>
 form {
-  max-width: 400px;
-  margin: auto;
+  /*margin: 25%;*/
+  max-width: 350px;
+  /*margin: auto;*/
+  /*padding: 35%;*/
+}
+.input {
+  position: static;
+  padding-top: 20%;
+  margin-top: 1%;
+}
+.label {
+  margin-bottom: 1%;
 }
 </style>

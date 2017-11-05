@@ -8,6 +8,9 @@
         <a class="navbar-item" href="/" >
           <img src="./assets/img2bd.png">
         </a>
+        <a class="navbar-item1">
+          <img src="./assets/img2bd.png">
+        </a>
         <div class="navbar-menu">
 
           <div class="navbar-start">
@@ -21,7 +24,6 @@
           <span></span>
           <span></span>
           <span></span>
-
         </div>
       </div>
 
@@ -35,6 +37,7 @@
             <div class="navbar-link">
               Explore
             </div>
+
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
               <!-- <a class="navbar-item " href="Master.vue"> -->
                 <p>
@@ -55,9 +58,13 @@
               </a>
 
             </div>
+
+
           </div>
 
-
+          <router-link v-if="!$root.user" to="/add-master" class="navbar-item ">
+            contribuez
+          </router-link>
 
           <router-link v-if="!$root.user" to="/login" class="navbar-item ">
             Login
@@ -88,7 +95,7 @@
 
     </section>
 
-    <footer id="bg-img">
+    <footer id="footer">
 
     </footer>
 
@@ -123,12 +130,12 @@ export default {
   font-size: 20px;
 }
 
-#bg-img {
-  background-color: black;
+#footer {
+  /*background-color:*/
   height: 15vh;
-  width: 100%;
+  width: 100px;
   /*background:url(./assets/bgimg1.png);*/
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
 }
 
@@ -143,13 +150,13 @@ export default {
 .container {
 position: relative;
 margin-top: 20px;
-  height: 400px;
+padding: 3%;
   max-width: 600px;
   border-style: solid;
   border-width: 0.5px;
   border-color: lightgrey;
   border-radius: 20px;
-  opacity: 0.97;
+  opacity: 0.99;
   background-color: white
 }
 .navbaris-transparent {
@@ -162,6 +169,14 @@ margin-top: 20px;
   background-position: center;
   background-size: cover;
 }
+.navbar-item1 img {
+  transform:          rotate(180deg);
+-ms-transform:      rotate(180deg);
+-moz-transform:     rotate(180deg);
+-webkit-transform:  rotate(180deg);
+max-height: 4rem;
+}
+
 .navbar-item img {
   max-height: 4rem;
 }

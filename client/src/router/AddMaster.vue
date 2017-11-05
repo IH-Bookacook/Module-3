@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="master">
     <b-notification v-if="error" type="is-danger" has-icon>
       {{ error.message }}
     </b-notification>
@@ -150,3 +150,13 @@ export default {
   }
 };
 </script>
+<style>
+#master {
+  ont-style: oblique;
+  font-family: smilingCat;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  color: black;
+}
+</style>
