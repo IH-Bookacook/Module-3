@@ -3,13 +3,14 @@
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <img :src="getUrl(artist.image)" alt="Artist image">
+      <router-link  :to="`/artists/${artist._id}`"><img :src="getUrl(artist.image)" alt="Artist image"></router-link>
     </figure>
   </div>
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4">{{artist.name}}</p>
+        <router-link  :to="`/artists/${artist._id}`"><p class="title is-4">{{artist.name}}</p></router-link>
+
               </div>
     </div>
 

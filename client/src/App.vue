@@ -8,6 +8,7 @@
 
         <a class="navbar-item" href="/" >
           <img src="./assets/img2bd.png">
+           <img src="./assets/img21bd.png" id="rotate180">
         </a>
         <div class="navbar-menu">
 
@@ -179,5 +180,13 @@ export default {
   font-weight: normal;
   color: black;
   font-size: 20px;
+}
+
+#rotate180 {
+  transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  max-height: 4rem;
 }
 </style>

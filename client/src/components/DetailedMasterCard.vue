@@ -15,7 +15,8 @@
 
     <div class="content">
       <div class="info">
-            <p><b>Auteur :</b> {{master.credits[0].artist.name}}</p>
+            <router-link  :to="`/artists/${master.credits[0].artist._id}`"><p><b>Auteur :</b> {{master.credits[0].artist.name}}</p></router-link>
+
             <p v-if="master.series"><b>Série :</b> {{master.series.name}}</p>
             <p v-if="master.publishers.length !==0"><b>Editeur :</b> {{master.publishers[0].name}}</p>
             <p v-if="master.yearFirstPublished"><b>Année de parution :</b> {{master.yearFirstPublished}}</p>
