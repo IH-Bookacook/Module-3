@@ -104,7 +104,7 @@ const router = new Router({
       component: Master
     },
     {
-      path: "/artist",
+      path: "/artists/:id",
       component: Artist
     },
     {

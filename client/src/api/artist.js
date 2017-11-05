@@ -13,7 +13,7 @@ export function getAllArtists() {
 }
 
 export function getArtist(id) {
-  return service.get("/${id}").then(res => res.data);
+  return service.get(id).then(res => res.data);
 }
 
 export function createArtist(data) {
