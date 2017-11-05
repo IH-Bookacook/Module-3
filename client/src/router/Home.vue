@@ -29,11 +29,17 @@
 
 }
 #words {
-  font-style: oblique;
+  /*font-style: oblique;
   font-family: serif;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
-  color: red;
+  color: red;*/
+  font-style: oblique;
+  font-family: smilingCat;
+  font-weight: normal;
+  text-align: center;
+  color: black;
+  font-size: 25px;
 }
 </style>

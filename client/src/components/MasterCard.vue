@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <template>
 
 <div class="card">
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-    
+
 </template>
 
 <script>
@@ -71,5 +71,3 @@ img display block fixed width / height
 h3 title class master title
 
 */
-=======
->>>>>>> 12bb03d5c85f9007d2a948c28a0f56c1d83ecb7f

@@ -7,9 +7,9 @@
 
         <a class="navbar-item" href="/" >
           <img src="./assets/img2bd.png">
-        </a>
-        <a class="navbar-item1">
-          <img src="./assets/img2bd.png">
+        <!-- </a> -->
+        <!-- <a class="navbar-item1"> -->
+          <img src="./assets/img21bd.png" id="rotate180">
         </a>
         <div class="navbar-menu">
 
@@ -169,11 +169,11 @@ padding: 3%;
   background-position: center;
   background-size: cover;
 }
-.navbar-item1 img {
-  transform:          rotate(180deg);
--ms-transform:      rotate(180deg);
--moz-transform:     rotate(180deg);
--webkit-transform:  rotate(180deg);
+#rotate180  {
+  transform:          rotate(-180deg);
+-ms-transform:      rotate(-180deg);
+-moz-transform:     rotate(-180deg);
+-webkit-transform:  rotate(-180deg);
 max-height: 4rem;
 }
 
