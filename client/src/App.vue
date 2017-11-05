@@ -7,8 +7,7 @@
 
         <a class="navbar-item" href="/" >
           <img src="./assets/img2bd.png">
-        <!-- </a> -->
-        <!-- <a class="navbar-item1"> -->
+
           <img src="./assets/img21bd.png" id="rotate180">
         </a>
         <div class="navbar-menu">
