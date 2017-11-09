@@ -52,25 +52,24 @@ function seedUsers() {
       email: "marc.henri@gmail.com"
     }
   ];
-  const reshma =
-    {
-      name: "Reshma Patel",
-      username: "reshma",
-      email: "rp@gmail.com"
-    }
+  const reshma = {
+    name: "Reshma Patel",
+    username: "reshma",
+    email: "rp@gmail.com"
+  };
 
   return Promise.all([
     new Promise((resolve, reject) => {
       User.register(reshma, "patel", (err, user) => {
-        if(err) reject(err)
-        else resolve(user)
-      })
+        if (err) reject(err);
+        else resolve(user);
+      });
     }),
     User.create(users)
   ]).then(([createdReshma, createdUsers]) => {
     return {
       users: createdUsers.concat([reshma])
-    }
+    };
   });
 }
 
@@ -79,15 +78,18 @@ function seedArtists(data) {
   const artists = [
     {
       name: "Albert Uderzo",
-      addedBy: getIdFromName(users, "Barbara Dupont")
+      addedBy: getIdFromName(users, "Barbara Dupont"),
+      image: "uderzo.jpg"
     },
     {
       name: "Hergé",
-      addedBy: getIdFromName(users, "Marc Henri")
+      addedBy: getIdFromName(users, "Marc Henri"),
+      image: "herge.jpg"
     },
     {
       name: "Yves Chaland",
-      addedBy: getIdFromName(users, "Barbara Dupont")
+      addedBy: getIdFromName(users, "Barbara Dupont"),
+      image: "chaland.jpg"
     }
   ];
   return Artist.create(artists).then(createdArtists => {
@@ -166,7 +168,7 @@ function seedMasters(data) {
     {
       title: "Adolphus Claar",
       yearFirstPublished: 1983,
-      country: "Belgium",
+      country: "France",
       genre: "Science Fiction",
       credits: [
         {

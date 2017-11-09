@@ -1,7 +1,8 @@
 <template>
+
   <div id="app" style="background-color:white; height: 100vh">
 
-   <nav class="navbar is-transparent">
+   <nav class="navbar">
 
       <div class="navbar-brand" >
 
@@ -34,7 +35,7 @@
           <div class="navbar-item has-dropdown is-hoverable">
 
             <div class="navbar-link">
-              Explore
+              Explorer
             </div>
 
             <div id="exploreDropdown" class="navbar-dropdown is-boxed">
@@ -54,7 +55,40 @@
                   <strong>Editeurs</strong>
                   </router-link>
                 </p>
-              </a>
+
+            </div>
+
+          </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+
+            <div class="navbar-link">
+              Contribuer
+            </div>
+            <div id="exploreDropdown" class="navbar-dropdown is-boxed">
+              <!-- <a class="navbar-item " href="Master.vue"> -->
+                <p>
+
+                  <router-link  to="/add-master" class="navbar-item">
+                  <strong>Ajouter une BD</strong>
+                  </router-link>
+
+                  <router-link  to="/add-release" class="navbar-item">
+                  <strong>Ajouter une édition</strong>
+                  </router-link>
+
+                  <router-link  to="/add-series" class="navbar-item">
+                  <strong>Ajouter une série</strong>
+                  </router-link>
+
+                  <router-link  to="/add-publisher" class="navbar-item">
+                  <strong>Ajouter un éditeur</strong>
+                  </router-link>
+
+                  <router-link  to="/add-artist" class="navbar-item">
+                  <strong>Ajouter un artiste</strong>
+                  </router-link>
+                </p>
 
             </div>
 
@@ -78,27 +112,9 @@
         </div>
       </div>
     </nav>
-
-    <section class="section bkgimg">
-
-<div class="">
-
-  <div class="container">
-
-    <router-view></router-view>
-
-  </div>
-
-</div>
-
-
-    </section>
-
+    <router-view>Home</router-view>
     <footer id="footer">
-
     </footer>
-
-
   </div>
 </template>
 
@@ -117,8 +133,8 @@ export default {
 </script>
 <style>
 @font-face {
-    font-family: smilingCat;
-    src: url(./assets/smiling_cat.otf);
+  font-family: smilingCat;
+  src: url(./assets/smiling_cat.otf);
 }
 
 #contain {
@@ -144,7 +160,6 @@ export default {
   font-weight: normal;
   color: white;
   font-size: 20px;
-
 }
 .container {
 position: relative;
@@ -158,21 +173,26 @@ padding: 3%;
   opacity: 0.99;
   background-color: white
 }
-.navbaris-transparent {
+/*.navbaris-transparent {*/
 
+.navcol {
+  color: #00fdc8ff;
 }
 
-.bkgimg{
-  background:url(./assets/bgimg8.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+#bg-img {
+  background-color: black;
+  height: 15vh;
+  width: 100%;
+  /*background:url(./assets/bgimg1.png);*/
+  position: fixed;
+  bottom: 0;
 }
+
 #rotate180  {
-  transform:          rotate(-180deg);
--ms-transform:      rotate(-180deg);
--moz-transform:     rotate(-180deg);
--webkit-transform:  rotate(-180deg);
+  transform:          rotate(180deg);
+-ms-transform:      rotate(180deg);
+-moz-transform:     rotate(180deg);
+-webkit-transform:  rotate(180deg);
 max-height: 4rem;
 }
 
@@ -187,4 +207,6 @@ max-height: 4rem;
   color: black;
   font-size: 20px;
 }
+
+
 </style>

@@ -4,11 +4,13 @@
       {{ error.message }}
     </b-notification>
     <form @submit.prevent="addMaster()">
-      <p>Ajouter un Master</p>
-      <b-field label="name of BD">
+      <br>
+      <h1 style="font-family:smilingCat;font-size:16px;color:#e01111"><b>AJOUTER UNE BD:</b></h1>
+      <br>
+      <b-field label="Titre de la BD">
         <b-input v-model="postData.title"></b-input>
       </b-field>
-      <b-field label="Nom de la collection(Serie)">
+      <b-field label="Nom de la Série">
         <b-autocomplete
           v-model="seriesName"
           keep-first
@@ -16,20 +18,20 @@
           field="name"
           @select="series => series ? postData.series = series._id : null">
           <template slot="empty">
-            Pas de collection trouvée.
+            Série inconnue
             <router-link to="/add-series" class="button is-primary">
-              En créer une
-              <b-field label="Nom de la series">
+              La créer
+              <b-field label="Nom de la série">
                 <b-input v-model="name"></b-input>
                 </b-field>
             </router-link>
           </template>
         </b-autocomplete>
       </b-field>
-      <b-field label="First year of Published">
+      <b-field label="Année de première publication">
       <b-input type="number" v-model="postData.yearFirstPublished"></b-input>
       </b-field>
-        <b-field label="nom de la publisher ">
+        <b-field label="Nom de l'éditeur">
         <b-autocomplete
         v-model="publisherName"
         keep-first
@@ -37,18 +39,18 @@
         field="name"
         @select="publisher => publisher ? postData.publishers = [publisher._id] : []">
         <template slot="empty">
-          pas de publisher trouvée.
+          Editeur inconnu
           <router-link to="/add-publisher" class="button is-primary">
-            En créer une
+            Le créer
         </router-link>
       </template>
       </b-autocomplete>
       </b-field>
-      <b-field label="Original Language">
+      <b-field label="Langue">
         <b-input v-model="postData.originalLanguage"></b-input>
       </b-field>
 
-      <b-field label="nom de la artist ">
+      <b-field label="Nom de l'artiste">
       <b-autocomplete
       v-model="artistName"
       keep-first
@@ -56,36 +58,34 @@
       field="name"
       @select="artist => artist ? postData.artists = [artist._id] : []">
       <template slot="empty">
-        pas de artist trouvée.
+        Artiste inconnu
         <router-link to="/add-artist" class="button is-primary">
-          En créer une
+          Le créer
       </router-link>
     </template>
     </b-autocomplete>
     </b-field>
 
-      <b-field label="Country">
+      <b-field label="Pays">
         <b-input v-model="postData.country"></b-input>
       </b-field>
       <b-field label="Genre">
         <b-input v-model="postData.genre"></b-input>
       </b-field>
-      <b-field label="Awards">
+      <b-field label="Récompenses">
         <b-input v-model="postData.awards"></b-input>
       </b-field>
-      <button class="button is-primary">Ajouter le master</button>
+      <button class="button is-primary">Ajouter la BD</button>
     </form>
 
   </div>
 </template>
 
 <script>
-import {
-  createMaster
-} from '@/api/master';
-import { getAllSeries } from '@/api/serie';
-import { getAllPublishers } from '@/api/publisher';
-import { getAllArtists } from '@/api/artist'
+import { createMaster } from "@/api/master";
+import { getAllSeries } from "@/api/serie";
+import { getAllPublishers } from "@/api/publisher";
+import { getAllArtists } from "@/api/artist";
 
 export default {
   data() {
@@ -111,48 +111,53 @@ export default {
     };
   },
   mounted() {
-    getAllSeries().then(series => this.allSeries = series)
-    getAllPublishers().then(publishers => this.allPublishers = publishers)
-    getAllArtists().then(artists => this.allArtists = artists)
+    getAllSeries().then(series => (this.allSeries = series));
+    getAllPublishers().then(publishers => (this.allPublishers = publishers));
+    getAllArtists().then(artists => (this.allArtists = artists));
   },
   computed: {
     filteredSeries() {
       return this.allSeries.filter(series => {
-        return series.name.toLowerCase()
-          .indexOf(this.seriesName.toLowerCase()) >= 0
-      })
+        return (
+          series.name.toLowerCase().indexOf(this.seriesName.toLowerCase()) >= 0
+        );
+      });
     },
-     filteredPublishers() {
+    filteredPublishers() {
       return this.allPublishers.filter(publisher => {
-        return publisher.name.toLowerCase()
-        .indexOf(this.publisherName.toLowerCase()) >= 0
-      })
+        return (
+          publisher.name
+            .toLowerCase()
+            .indexOf(this.publisherName.toLowerCase()) >= 0
+        );
+      });
     },
     filteredArtists() {
       return this.allArtists.filter(artist => {
-        return artist.name.toLowerCase()
-        .indexOf(this.artistName.toLowerCase()) >= 0
-      })
+        return (
+          artist.name.toLowerCase().indexOf(this.artistName.toLowerCase()) >= 0
+        );
+      });
     }
   },
   methods: {
     addMaster() {
       this.error = null;
       createMaster(this.postData)
-      .then(() => {
-        this.$router.push("/");
-      })
-      .catch(err => {
-        this.error = err.response.data.error;
-        console.error("Upload error", err);
-      });
+        .then(() => {
+          this.$router.push("/");
+        })
+        .catch(err => {
+          this.error = err.response.data.error;
+          console.error("Upload error", err);
+        });
     }
   }
 };
 </script>
 <style>
 #master {
-  ont-style: oblique;
+  font-style: oblique;
   font-family: smilingCat;
   font-weight: normal;
   font-size: 20px;

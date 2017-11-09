@@ -1,5 +1,7 @@
 <template>
 
+<div>
+
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
@@ -21,6 +23,7 @@
   </div>
 </div>
 
+</div>
     
 </template>
 
@@ -35,8 +38,15 @@ div {
   display: block;
 }
 
+.card-image {
+  padding-left: 8px;
+}
+
 .card {
-  margin-bottom: 34px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 40px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }

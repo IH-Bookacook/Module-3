@@ -13,7 +13,7 @@ export function getAllMasters() {
 }
 
 export function getMaster(id) {
-  return service.get(`/${id}`).then(res => res.data);
+  return service.get(id).then(res => res.data);
 }
 
 export function createMaster(data) {

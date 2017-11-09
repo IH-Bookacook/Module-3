@@ -1,7 +1,9 @@
 <template>
   <div>
-      <h1>Additions récentes...</h1>
-      <ul class="container">
+      <br>
+      <h1 style="margin-left:20px;color:#e01111"><b>Additions récentes...</b></h1>
+      
+      <ul>
           <li v-for="artist in artists" :key="artist._id" >
               <artist-card :artist="artist"></artist-card>    
           </li>
@@ -32,10 +34,11 @@ export default {
 </script>
 
 <style>
-.container {
-  display: block;
-  margin-bottom: 34px;
+ul {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 </style>
